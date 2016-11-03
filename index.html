@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Portfolio</title>
+<style>
+* {
+	text-align: center;	
+}
+</style>
+<script>
+    function go(loc){
+        document.getElementById('iframe').src = loc; 
+    }
+</script>
+</head>
+<body>
+<h1>Portfolio</h1>
+<h2>-Ryan Cairns-</h2>
+<p>This webpage will be updated with all of my projects that have been completed.</p>
+<p>Click the radio buttons to navigate within the iframe, click the links to navigate to the full webpage, and the Portfolio button at the bottom to navigate to my gh-pages portfolio (in-class).</p>
+ <center><div class="iframe_container">
+    <form>
+ <table width="60%" border="0" align="center">
+  <tbody>
+    <tr>
+      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('My favorites/index.html')"/><a href="My favorites/index.html">My Favorites</a></td>
+      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Safety/index.html')"/><a href="Safety/index.html">Safety</a></td>
+      
+    </tr>
+    <tr>
+      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Bullying/index.html')"/><a href="Bullying/index.html">Bullying</a></td>
+      <td align="center"><input name="iframe" type="radio" onClick= "go('DreamPC/index.html')" value="type"/><a href="DreamPC/index.html">DreamPC</a></td>
+      
+    </tr>
+    <tr>
+    	<td align="center"><input type="radio" name="iframe" value="type" onClick= "go('SchoolMap/index.html')"/><a href="SchoolMap/index.html">School Map</a></td>
+        <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Tech People/index.html')"/><a href="Tech People/index.html">Frameset Example</a></td>
+    </tr>
+    
+    <tr>
+    	<td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Test/Gettysburg/Gettysburg.html')"/><a href="Test/Gettysburg/Gettysburg.html">Speeches</a></td>
+        <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Halloween/index.html')"/><a href="Halloween/index.html">Halloween</a></td>
+    </tr>
+    <tr>
+      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Displays/index.html')"/><a href="Displays/index.html">Display Sizes</a></td>
+      <td align="center">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+    </form>
+</div>
+
+ 
+<div class="logins_details_container">
+    <iframe id="iframe" src="Portfolio/home_schedule_iframe.php" width="1200px" height="800px"></iframe>
+</div><form method="get" action="http://rcairns.nl/">
+    <button type="submit">go to gh-pages portfolio</button>
+</form>
+</center>
+</body>
+</html>

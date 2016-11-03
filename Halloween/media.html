@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>halloween</title>
+<script>
+function myFunction() {
+	
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is the right answer, bring to next page
+
+    if (x == "haunted house") {
+       location.href = 'congrats.html';
+	   text = "CORRECT";
+    } else {
+		
+		 text = "WRONG ; keep looking";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+    </script>
+<link href="halloween.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Halloween</h1>
+<span class="styled-select">
+   <select onchange="location = this.value;">
+		<option value="index.html">Back to index page</option>
+        <option value="history.html">History</option>
+		<option value="costume.html">Costumes</option>
+        <option value="safety.html">Safety</option>
+        <option disabled selected value>You are on : Media</option>
+</select>
+</span>
+<br>
+<h2>Halloween Theme Movies</h2>
+<p style="margin-top:-25px">Halloween - 1978
+<br>
+The Night Before Christmas - 1993
+<br>
+Hocus Pocus - 1993
+<br>
+Casper The Friendly Ghost - 1995
+<br>
+Monster House - 2006</p>
+
+<p style="margin-top: 50px">Input the secret password below (all lowercase) and press submit</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:black;
+	color:orange;
+}
+h1{
+	background-color:black;
+	color:orange;	
+	font-family: chiller;
+	font-size: 65px;
+}
+h2,h3,h4,h5,h6,h7 {
+	background-color:black;
+	color:orange;	
+	font-family: chiller;
+	font-size: 50px;
+	
+}
+h3,h4,h5,h6,h7 {
+	background-color:black;
+	color:orange;	
+	font-family: chiller;
+	font-size: 35px;
+	
+}
+p { 
+	color: orange;
+	background-color: black;
+	margin: auto;
+	width: 1000px;
+	border: solid 7px black;
+}
+
+* {
+	text-align:center;	
+}
+
+.styled-select select {
+   background: transparent;
+   color: orange
+   }
+   
+ .answer {
+ 	color: inherit;
+	background-color: inherit;
+ }
+ 
+ .hideLink {
+	cursor: text;
+	text-decoration: none;
+	color:inherit;
+	text-align:inherit;
+}

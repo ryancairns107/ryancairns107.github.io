@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+p {
+	background-color: #D5D5D5;
+	color: black;
+	/*margin: auto;
+	margin-left: 400px;
+	margin-right: 400px;*/
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+
+.box {
+	display: none;
+	margin: auto;
+	margin-left: 215px;
+	margin-right: 215px;
+	margin-top: 275px;
+	border: 5px red;
+}

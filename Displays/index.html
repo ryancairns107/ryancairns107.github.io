@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="diplays, display sizes, screens">
+<meta name="description" content="Compare screen sizes with this website">
+<meta name="revised" content="11/02/16">
+<title>Displays</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+<style>
+</style>
+<script>
+function show(s) {
+	document.getElementById("desktop").style.display = "none";
+	document.getElementById("laptop").style.display = "none";
+	document.getElementById("tablet").style.display = "none";
+	document.getElementById("smartphone").style.display = "none";
+	document.getElementById(s).style.display = "block";
+}
+</script>
+
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>Display Sizes<br><span style="visibility:hidden;">blank</span></h1>
+<br>
+
+<div style="visibility: visible;position: fixed; top: 0px; right: 0px;">
+<img src="src/monitor.png" alt="/" width="308" height="277"  onmouseover="show('desktop');">
+<p>desktop pc</p>
+</div>
+
+<div style="visibility: visible;position: fixed; bottom: 0; right: 0;"  onmouseover="show('smartphone');">
+<img src="src/phone.png" alt="/" width="288" height="238">
+<p>phone</p>
+</div>
+
+<div style="visibility: visible;position: fixed; top: 0; left: 0;" onmouseover="show('tablet');">
+<img src="src/tablet.png" alt="/" width="408" height="241">
+<p>tablet</p>
+</div>
+
+<div style="visibility: visible;position: fixed; bottom: 0; left: 0;" onmouseover="show('laptop');">
+<img src="src/laptop.png" alt="/" width="362" height="337">
+<p>laptop </p>
+</div>
+
+<span class="box" id="desktop"><b>Desktop</b> - A personal computer in a form intended for regular use at a single location desk/table due to its size and power requirements, as opposed to a laptop whose rechargeable battery and compact dimensions allow it to be regularly carried and used in different locations. The most common configuration is a computer monitor, keyboard and mouse, and a case that houses the main components of the PC, namely the power supply, motherboard, hard drive, optical drive, and previously the floppy drive. The form factor of the case is typically an upright tower or (horizontal) desktop. All-in-one computers, that integrate the monitor and main PC components in one unit, are often categorized under the desktop computer umbrella, particularly if they require an external power source and separate keyboard/mouse. The desktop category has also encompassed home computers and workstations. <a href="http://en.wikipedia.org/wiki/Desktop_computer" target="_blank">wikipedia.org</a></span>
+<span class="box" id="laptop"><b>Laptop</b> - A portable personal computer with a clamshell form factor, suitable for mobile use. There was a difference between laptops and notebooks in the past, but nowadays it has gradually died away. Laptops are commonly used in a variety of settings, including at work, in education, and for personal multimedia. <a href="http://en.wikipedia.org/wiki/Laptop" target="_blank">wikipedia.org</a></span>
+<span class="box" id="tablet"><b>Tablet</b> - A mobile computer with display, circuitry and battery in a single unit. Tablets come equipped with sensors, including cameras, a microphone, an accelerometer and a touchscreen, with finger or stylus gestures substituting for the use of computer mouse and keyboard. Tablets may include physical buttons (for example: to control basic features such as speaker volume and power) and ports (for network communications and to charge the battery). They usually feature on-screen, pop-up virtual keyboards for typing. Tablets are typically larger than smart phones or personal digital assistants at 7 inches (18 cm) or larger, measured diagonally. One can classify tablets into several categories according to the presence and physical appearance of keyboards. Slates and booklets do not have a physical keyboard and typically feature text input performed through the use of a virtual keyboard projected on a touchscreen-enabled display. Hybrids and convertibles do have physical keyboards, although these devices typically also make virtual keyboards available. <a href="http://en.wikipedia.org/wiki/Tablet_computer" target="_blank">wikipedia.org</a></span>
+<span class="box" id="smartphone"><b>Smartphone</b> - A mobile phone with more advanced computing capability and connectivity than basic feature phones. Smartphones typically include the features of a phone with those of another popular consumer device, such as a personal digital assistant, a media player, a digital camera, and/or a GPS navigation unit. Later smartphones include all of those plus the features of a touchscreen computer, including web browsing, Wi-Fi, 3rd-party apps, motion sensor, mobile payment and 3G. <a href="http://en.wikipedia.org/wiki/Smartphone" target="_blank">wikipedia.org</a></span>
+
+<!-- nice try mr. clarke -->
+
+</body>
+</html>
