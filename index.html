@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Portfolio</title>
+<link rel="stylesheet" href="index.css">
 <style>
 * {
 	text-align: center;	
+}
+a:link {
+	color: #000000;
 }
 </style>
 <script>
@@ -24,26 +28,38 @@
  <table width="60%" border="0" align="center">
   <tbody>
     <tr>
-      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('My favorites/index.html')"/><a href="My favorites/index.html">My Favorites</a></td>
-      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Safety/index.html')"/><a href="Safety/index.html">Safety</a></td>
       
-    </tr>
-    <tr>
-      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Bullying/index.html')"/><a href="Bullying/index.html">Bullying</a></td>
-      <td align="center"><input name="iframe" type="radio" onClick= "go('DreamPC/index.html')" value="type"/><a href="DreamPC/index.html">DreamPC</a></td>
+      <td style="text-align:left">
+      <input type="radio" name="iframe" value="type" onClick= "go('My favorites/index.html')" style="margin-left:-4px"/>
+      <label><span><span></span></span><a href="My favorites/index.html">My Favorites</a></label>
+      </td>
       
-    </tr>
-    <tr>
-    	<td align="center"><input type="radio" name="iframe" value="type" onClick= "go('SchoolMap/index.html')"/><a href="SchoolMap/index.html">School Map</a></td>
-        <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Tech People/index.html')"/><a href="Tech People/index.html">Frameset Example</a></td>
+      <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Safety/index.html')"/><label><span><span></span></span><a href="Safety/index.html">Safety</a></label></td>
+      
     </tr>
     
     <tr>
-    	<td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Test/Gettysburg/Gettysburg.html')"/><a href="Test/Gettysburg/Gettysburg.html">Speeches</a></td>
-        <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Halloween/index.html')"/><a href="Halloween/index.html">Halloween</a></td>
+      <td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Bullying/index.html')"/><label><span><span></span></span><a href="Bullying/index.html">Bullying</a></label></td>
+      
+      <td style="text-align:right"><input name="iframe" type="radio" onClick= "go('DreamPC/index.html')" value="type"/><label><span><span></span></span><a href="DreamPC/index.html">DreamPC</a></label></td>
+      
     </tr>
+    
     <tr>
-      <td align="center"><input type="radio" name="iframe" value="type" onClick= "go('Displays/index.html')"/><a href="Displays/index.html">Display Sizes</a></td>
+    	<td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('SchoolMap/index.html')"/><label><span><span></span></span><a href="SchoolMap/index.html">School Map</a></label></td>
+        
+        <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Tech People/index.html')" style="align: left"/><label><span><span></span></span><a href="Tech People/index.html">Frameset Example</a></label></td>
+    </tr>
+    
+    <tr>
+    	<td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Test/Gettysburg/Gettysburg.html')"/><label><span><span></span></span><a href="Test/Gettysburg/Gettysburg.html">Speeches</a></label></td>
+        
+        <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Halloween/index.html')"/><label><span><span></span></span><a href="Halloween/index.html">Halloween</a></label></td>
+    </tr>
+    
+    <tr>
+      <td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Displays/index.html')"/><label><span><span></span></span><a href="Displays/index.html">Display Sizes</a></label></td>
+      
       <td align="center">&nbsp;</td>
     </tr>
   </tbody>
@@ -51,10 +67,9 @@
     </form>
 </div>
 
- 
 <div class="logins_details_container">
     <iframe id="iframe" src="hello world 1 - First Attempt/helloWorld 1.html" width="1200px" height="800px"></iframe>
-</div><form method="get" action="ryancairns107.github.io">
+</div><form method="get" action="http://ryancairns107.github.io">
     <button type="submit">go to gh-pages portfolio</button>
 </form>
 </center>
