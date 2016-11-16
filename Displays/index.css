@@ -27,8 +27,90 @@ body {
 	display: none;
 	position: fixed;
 	margin: auto;
+	width: 60%;
 	top: 50%;
 	left: 50%;
 	border: solid 5px #9099A2;
 	transform: translate(-50%, -50%);
+}
+
+.roundedBorderL {
+	border-radius: 40px;	
+}
+
+.roundedBorderS {
+	border-radius: 10px;	
+}
+
+.roundedBorderM {
+	border-radius: 25px	
+}
+
+hr{
+	border: 0;
+	height: 3px; 
+	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	
+}
+
+.grow:hover {
+	animation-duration: .75s;
+	animation-name:scaleUp;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes scaleUp {
+	from {
+		transform: scale(1,1);
+	}
+	to {
+		transform: scale(1.3,1.3);
+	}
+}
+
+.tip:hover {
+	animation-duration: 500ms;
+	animation-name:deg20;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes deg20 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(20deg);
+	}
+}
+
+.spin:hover {
+	animation-duration: 1.5s;
+	animation-name: rotate;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+
+
+.moonwalk:hover {
+	animation-duration: 1s;
+	animation-name:slide;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes slide {
+	from {
+		transform: translate(0px,0px);
+	}
+	to {
+		transform: translate(-150px,0px);
+	}
 }

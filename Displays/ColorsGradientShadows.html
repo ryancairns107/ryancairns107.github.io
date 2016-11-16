@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Color Gradients and Shadows</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+<style>
+p{width:800px; align:center;margin: auto;border-radius: 15px;}
+</style>
+</head>
+<body>
+<h1 style="margin-top: -8px"><br>Colors, Gradients, and Shadows<br>
+<span style="visibility:hidden;">-</span></h1>
+<br />
+<p><a href="index.html">Display Sizes</a> | <b>Colors/Gradients</b> | <a href="transform.html">2d Transformations</a></p><br />
+<p style="background-color:rgba(255,0,0,1)">red alpha: 1 RGBa(255,0,0,1)</p>
+<p style="background-color:rgba(255,0,0,.2)">red alpha: .2 RGBa(255,0,0,.2)</p>
+<br/>
+<p style="background-color:rgba(0,255,0,1)">green alpha: 1 RGBa(0,255,0,1)</p>
+<p style="background-color:rgba(0,255,0,.2)">green alpha: .2 RGBa(0,255,0,.2)</p>
+<br/>
+<p style="background-color:rgba(0,0,255,1)">blue alpha: 1 RGBa(0,0,255,1)</p>
+<p style="background-color:rgba(0,0,255,.2)">blue alpha: .2 RGBa(0,0,255,.2)</p>
+<br/>
+<p style="background-color:rgba(255,255,255,1)">white alpha: 1 RGBa(255,255,255,1)</p>
+<p style="background-color:rgba(255,255,255,.2)">white alpha: .2 RGBa(255,255,255,.2)</p>
+<br />
+<p style="background-color:rgba(0,0,0,1); color: rgba(255,255,255,1)">black alpha: 1 RGBa(0,0,0,1)</p>
+<p style="background-color:rgba(0,0,0,.2); color: rgba(255,255,255,1)">black alpha: .2 RGBa(0,0,0,.2)</p><br/>
+
+
+<hr/>
+<br/><!-- opacity -->
+
+
+<p style="background-color:rgb(255,0,0);opacity:1">red opacity:1 RGBa(255,0,0)</p>
+<p style="background-color:rgb(255,0,0);opacity:.5">red opacity:.5 RGBa(255,0,0)</p>
+
+<p style="background-color:rgb(0,255,0);opacity:1">green opacity:1 RGB(0,255,0)</p>
+<p style="background-color:rgb(0,255,0);opacity:.5">green opacity:.5 RGBa(0,255,0)</p>
+<br/>
+<p style="background-color:rgb(0,0,255)">blue opacity:1 RGBa(0,0,255)</p>
+<p style="background-color:rgb(0,0,255);opacity:.5">blue opacity:.5 RGBa(0,0,255)</p>
+<br/>
+<p style="background-color:rgb(255,255,255)">white opacity:1 RGBa(255,255,255)</p>
+<p style="background-color:rgb(255,255,255);opacity:.5">white opacity:.5 RGBa(255,255,255)</p>
+<br />
+<p style="background-color:rgb(0,0,0);opacity:1; color: rgba(255,255,255,1)">black opacity:1 RGB(0,0,0);opacity:1</p>
+<p style="background-color:rgb(0,0,0);opacity:.5; color: rgba(255,255,255,1)">black opacity:.5 RGB(0,0,0)</p><br/>
+
+
+<hr/> <!--gradient-->
+<br/>
+
+<p style="background: linear-gradient(90deg, rgba(255,0,0,1) , rgba(0,255,0,1) , rgba(0,0,255,1)">gradient - red to green to blue</p>
+
+
+</body>
+</html>

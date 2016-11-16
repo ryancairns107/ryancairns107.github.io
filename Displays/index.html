@@ -8,6 +8,19 @@
 <title>Displays</title>
 <link href="index.css" rel="stylesheet" type="text/css">
 <style>
+img{
+	border-radius: 20px;
+	border: solid 5px #9099A2;
+	background:	#9099A2
+}
+.clockwise:hover{
+	transform: rotate(20deg);
+	opacity:.3	
+}
+.anticlockwise:hover{
+	transform: rotate(-20deg);
+	opacity:.3	
+}
 </style>
 <script>
 function show(s) {
@@ -22,26 +35,27 @@ function show(s) {
 </head>
 
 <body>
-<h1 style="margin-top: -8px"><br>Display Sizes<br><span style="visibility:hidden;">blank</span></h1>
-<br>
+<h1 style="margin-top: -8px"><br>Display Sizes<br>
+<span style="visibility:hidden;">-</span></h1>
+<p><b>Display Sizes </b>| <a href="ColorsGradientShadows.html">Colors/Gradients</a> | <a href="transform.html">2d Transformations</a></p>
 
 <div style="visibility: visible;position: fixed; top: 0px; right: 0px;">
-<img src="src/monitor.png" alt="/" width="308" height="277"  onmouseover="show('desktop');">
+<img src="src/monitor.png" alt="/" width="308" height="277"  onmouseover="show('desktop');" class="anticlockwise">
 <p>desktop pc</p>
 </div>
 
 <div style="visibility: visible;position: fixed; bottom: 0; right: 0;"  onmouseover="show('smartphone');">
-<img src="src/phone.png" alt="/" width="288" height="238">
+<img src="src/phone.png" alt="/" width="288" height="238" class="anticlockwise">
 <p>phone</p>
 </div>
 
 <div style="visibility: visible;position: fixed; top: 0; left: 0;" onmouseover="show('tablet');">
-<img src="src/tablet.png" alt="/" width="408" height="241">
+<img src="src/tablet.png" alt="/" width="408" height="241" class="clockwise">
 <p>tablet</p>
 </div>
 
 <div style="visibility: visible;position: fixed; bottom: 0; left: 0;" onmouseover="show('laptop');">
-<img src="src/laptop.png" alt="/" width="362" height="337">
+<img src="src/laptop.png" alt="/" width="362" height="337" class="clockwise">
 <p>laptop </p>
 </div>
 
