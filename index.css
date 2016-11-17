@@ -6,15 +6,16 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 body{
-	background-color: #EFEFEF;
+	background: #EFEFEF;
 }
 
 p{
-	background-color: #CAEBF2;
+	/*background-color: #CAEBF2;*/
 	color:black;
 	margin: auto;
 	margin-left:15%;
 	margin-right: 15%;
+	background: radial-gradient(circle at center, #CAEBF2, #EFEFEF);
 }
 
 a:hover,a:visited,a:link {
