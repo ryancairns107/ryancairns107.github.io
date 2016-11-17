@@ -15,7 +15,10 @@ body {
 	color: brown;
 	background-color: powderblue;
 	text-align: center;
-	cursor: pointer;		
+	cursor: pointer;
+	column-count: 2;
+	column-gap: 50px;
+	column-rule:groove; 
 }
 
 .hideLink {
@@ -28,4 +31,8 @@ body {
 
 p {
     outline: #58B426 dotted thick;
+}
+
+*{
+	text-align:center	
 }

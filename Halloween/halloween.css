@@ -37,6 +37,10 @@ p {
 	text-align:center;	
 }
 
+abbr{
+	text-decoration:none;	
+}
+
 .styled-select select {
    background: transparent;
    color: orange
