@@ -5,75 +5,60 @@
 <title>Portfolio</title>
 <link rel="stylesheet" href="index.css">
 <link rel="icon" href="favicon.png">
-<style>
-* {
-	text-align: center;	
-}
-a:link {
-	color: #000000;
-}
-</style>
 <script>
-    function go(loc){
-        document.getElementById('iframe').src = loc; 
-    }
+    function go(loc){;
+        document.getElementById("iframe").src = loc; 
+    } //disconnected
+
+
+function readVal() {
+	
+	var slideNumb = document.getElementById("numb").value;
+	if (slideNumb == 0)
+		{go('http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm')}
+	else if (slideNumb == 1)
+		{go('My favorites/index.html')}
+	else if (slideNumb == 2)
+		{go('Safety/index.html')}
+	else if (slideNumb == 3)
+		{go('Safety/index.html')}
+	else if (slideNumb == 4)
+		{go('Bullying/index.html')}
+	else if (slideNumb == 5)
+		{go('DreamPC/index.html')}
+	else if (slideNumb == 6)
+		{go('SchoolMap/index.html')}
+	else if (slideNumb == 7)
+		{go('Tech People/index.html')}
+	else if (slideNumb == 8)
+		{go('Test/Gettysburg/Gettysburg.html')}
+	else if (slideNumb == 9)
+		{go('Halloween/index.html')}
+	else if (slideNumb == 10)
+		{go('Displays/index.html')}
+}
+
 </script>
 </head>
 <body>
 <h1>Portfolio</h1>
-<h2>-Ryan Cairns-</h2>
-<p>This webpage will be updated with all of my projects that have been completed.</p>
-<p>Click the radio buttons to navigate within the iframe, click the links to navigate to the full webpage, and the Portfolio button to navigate to my gh-pages portfolio (in-class).</p>
- <center><div class="iframe_container">
-    <form>
- <table width="60%" border="0" align="center">
-  <tbody>
-    <tr>
-      
-      <td style="text-align:left">
-      <input type="radio" name="iframe" value="type" onClick= "go('My favorites/index.html')" style="margin-left:-4px"/>
-      <label><span><span></span></span><a href="My favorites/index.html">My Favorites</a></label>
-      </td>
-      
-      <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Safety/index.html')"/><label><span><span></span></span><a href="Safety/index.html">Safety</a></label></td>
-      
-    </tr>
-    
-    <tr>
-      <td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Bullying/index.html')"/><label><span><span></span></span><a href="Bullying/index.html">Bullying</a></label></td>
-      
-      <td style="text-align:right"><input name="iframe" type="radio" onClick= "go('DreamPC/index.html')" value="type"/><label><span><span></span></span><a href="DreamPC/index.html">DreamPC</a></label></td>
-      
-    </tr>
-    
-    <tr>
-    	<td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('SchoolMap/index.html')"/><label><span><span></span></span><a href="SchoolMap/index.html">School Map</a></label></td>
-        
-        <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Tech People/index.html')" style="align: left"/><label><span><span></span></span><a href="Tech People/index.html">Frameset Example</a></label></td>
-    </tr>
-    
-    <tr>
-    	<td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Test/Gettysburg/Gettysburg.html')"/><label><span><span></span></span><a href="Test/Gettysburg/Gettysburg.html">Speeches</a></label></td>
-        
-        <td style="text-align:right"><input type="radio" name="iframe" value="type" onClick= "go('Halloween/index.html')"/><label><span><span></span></span><a href="Halloween/index.html">Halloween</a></label></td>
-    </tr>
-    
-    <tr>
-      <td style="text-align:left"><input type="radio" name="iframe" value="type" onClick= "go('Displays/index.html')"/><label><span><span></span></span><a href="Displays/index.html">Display Sizes</a></label></td>
-      
-      <td align="center">&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
+<p id="demo"></p>
+<div style="position: fixed; bottom: 2%; left: 50%; width: 85%; margin-left: -42.5%; background:#B7B7B7">
+<div>
+<br>
+<iframe width="1280px" height="720px" id="iframe" style="position:fixed; top:50%; left:50%; margin-left:-640px; margin-top:-370px;">
+</iframe>
+</div>
+<form name="project"><input required type="range" formmethod="post"
+ name="slider"
+ min="0" max="10" step="1" Value="0"
+ style="width:90%" id="numb"
+ onChange="document.project.slideValue.value = document.project.slider.value; readVal() "
+ onMouseMove="document.project.slideValue.value = document.project.slider.value;"> <input type="text" name="slideValue" value="CompSciClarke" style="width: 10%" 
+ onChange="document.project.slider.value = document.project.slideValue.value;" >
+</form>
+</div> 
 
-    </form>
-</div>
-<form method="get" action="http://rcairns.com">
-    <br><button type="submit">go to gh-pages portfolio</button><br>
-</form><br>
-<div class="logins_details_container">
-    <iframe id="iframe" src="http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm" width="1200px" height="800px"></iframe>
-</div>
-</center>
+
 </body>
 </html>

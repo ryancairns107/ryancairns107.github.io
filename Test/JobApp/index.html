@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Job Application</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+<div class="logo"><img src="r.png" width="100" alt="/" height="100"></div>
+<div class="header">Job Application</div>
+<div class="menu">menu</div>
+<div class="content"><table width="100%" border="0">
+<form name="jobApp" method="post">
+  <tbody>
+    <tr>
+      <td>First Name:</td>
+      <td><input required type="text"></td>
+    </tr>
+    <tr>
+      <td>Last Name:</td>
+      <td><input required type="text"></td>
+    </tr>
+    <tr>
+      <td>Grade</td>
+      <td>
+      	<select>
+     	<option disabled selected value>Choose a Grade</option>
+		<option>Junior</option>
+		<option>Senior</option>
+        <option>Post-Secondary</option>
+		</select>
+       </td>
+    </tr>
+    <tr>
+      <td>What is your age</td>
+      <td><input required  type="number" min="16" max="30"></td>
+    </tr>
+    <tr>
+      <td>18 or over:</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>UserID:</td>
+      <td><input required type="text"></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input required type="password"></td>
+    </tr>
+     <tr>
+    	<td>Gender:</td>
+      <td>Male<input required type="radio" name="gender" checked><input required type="radio" name="gender">Female</td>
+    </tr>
+    <tr>
+    	<td>Input full adress here:</td>
+      <td><textarea rows="4" cols="50"></textarea></td>
+    </tr>
+    <tr>
+    	<td>Input email adress here:</td>
+      <td><input required type="email"></td>
+    </tr>
+    <tr>
+    	<td>Input telephone number:</td>
+      <td><input required type="tel"></td>
+    </tr>
+    <tr>
+    	<td>When would you be able to start working:</td>
+      <td><input required type="date"></td>
+    </tr>
+    <tr>
+    	<td>Wage:</td>
+      <td><input required type="number"></td>
+    </tr>
+    <tr>
+    	<td>Color:</td>
+      <td><input required name="picker" type="color" onChange="document.jobApp.hex.value = document.jobApp.picker.value"> <input name="hex" type="text" onChange="document.jobApp.picker.value = document.jobApp.hex.value"></td>
+    </tr>
+    <tr>
+    	<td>Range:</td>
+      <td><input required type="range" name="slider" onChange="document.jobApp.slideValue.value = document.jobApp.slider.value;" onMouseMove="document.jobApp.slideValue.value = document.jobApp.slider.value;"> <input type="text" name="slideValue" onChange="document.jobApp.slider.value = document.jobApp.slideValue.value;" ></td>
+    </tr>
+    <tr>
+    	<td><input type="reset"></td>
+      <td><input type="submit" method: post></td>
+      <td><input value="rcairns.com" type="submit"></td>
+    </tr>
+   
+  </tbody>
+  </form>
+</table>
+</div>
+<div class="sidebar">sidebar</div>
+<div class="footer">footer</div>
+</div>
+</body>
+</html>
