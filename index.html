@@ -9,8 +9,6 @@
     function go(loc){;
         document.getElementById("iframe").src = loc; 
     } //disconnected
-
-
 function readVal() {
 	
 	var slideNumb = document.getElementById("numb").value;
@@ -21,34 +19,31 @@ function readVal() {
 	else if (slideNumb == 2)
 		{go('Safety/index.html')}
 	else if (slideNumb == 3)
-		{go('Safety/index.html')}
-	else if (slideNumb == 4)
 		{go('Bullying/index.html')}
-	else if (slideNumb == 5)
+	else if (slideNumb == 4)
 		{go('DreamPC/index.html')}
-	else if (slideNumb == 6)
+	else if (slideNumb == 5)
 		{go('SchoolMap/index.html')}
-	else if (slideNumb == 7)
+	else if (slideNumb == 6)
 		{go('Tech People/index.html')}
-	else if (slideNumb == 8)
+	else if (slideNumb == 7)
 		{go('Test/Gettysburg/Gettysburg.html')}
-	else if (slideNumb == 9)
+	else if (slideNumb == 8)
 		{go('Halloween/index.html')}
-	else if (slideNumb == 10)
+	else if (slideNumb == 9)
 		{go('Displays/index.html')}
+	else if (slideNumb == 10)
+		{go('Winter/index.html')}
 }
-
 </script>
 </head>
 <body>
 <h1>Portfolio</h1>
 <p id="demo"></p>
 <div style="position: fixed; bottom: 2%; left: 50%; width: 85%; margin-left: -42.5%;">
-<div>
 <br>
 <iframe width="1280px" height="720px" id="iframe" style="position:fixed; top:50%; left:50%; margin-left:-640px; margin-top:-370px;">
 </iframe>
-</div>
 <form name="project"><input required type="range" formmethod="post"
  name="slider"
  min="0" max="10" step="1" Value="0"
