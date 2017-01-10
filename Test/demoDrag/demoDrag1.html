@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Meme Dreams</title>
+<style>
+#div1 {
+    float: left;
+    width: 600px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#div2 {
+    float: left;
+    width: 700px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+	
+function changeMusic1(){
+	document.getElementById('music').src = 'seinfeldSlapBass.mp3';
+	document.getElementById('drag1').src = 'spore.png';
+}
+
+function changeMusic2(){
+	document.getElementById('music').src = 'jazz.mp3';
+	document.getElementById('music').currentTime = '5';
+	document.getElementById('drag1').src = 'sting.png';
+}
+</script>
+</head>
+<body>
+<div id="div1" ondrop="drop(event); changeMusic1()" ondragover="allowDrop(event)">
+  <img src="spore.png" draggable="true" alt="/" ondragstart="drag(event)" style="height:350px; widows:550px" id="drag1">
+</div>
+
+<div id="div2" ondrop="drop(event); changeMusic2()" ondragover="allowDrop(event)"></div>
+<audio id="music" controls repeat="true" autoplay src="seinfeldSlapBass.mp3"></audio>
+</body>
+</html>
