@@ -39,6 +39,15 @@ function readVal() {
 </head>
 <body>
 <h1>Portfolio</h1>
+<script>
+var d = new Date();
+var mm = d.getMonth() + 1;
+if(mm < 10) { mm = "0" + mm;}
+var dd = d.getDate();
+var yy = d.getFullYear();
+var mmddyy = mm + "/" + dd + "/" + yy;
+document.write(mmddyy)
+</script>
 <p id="demo"></p>
 <div style="position: fixed; bottom: 2%; left: 50%; width: 85%; margin-left: -42.5%;">
 <br>
