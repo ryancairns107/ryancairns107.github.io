@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+	width:75%
+ }
+</style>
+<script>
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>
+  demoBinaryClock<br>
+<span style="visibility:hidden;">-</span></h1>
+<p>&nbsp;</p>
+<table border="1">
+<tr><td></td><th>2<sup>6</sup></th><th>2<sup>5</sup></th><th>2<sup>4</sup></th>
+<th>2<sup>3</sup></th><th>2<sup>2</sup></th><th>2<sup>1</sup></th><th>2<sup>0</sup></th></tr>
+<tr><td></td><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+<tr><td id="hour" style="width: 4em;">Hour:</td><td id="h6"></td><td id="h5"></td><td id="h4"></td>
+<td id="h3"></td><td id="h2"></td><td id="h1"></td><td id="h0"></td></tr>
+<tr><td id="minute">Minute:</td><td id="m6"></td><td id="m5"></td><td id="m4"></td>
+<td id="m3"></td><td id="m2"></td><td id="m1"></td><td id="m0"></td></tr>
+<tr><td id="second">Second:</td><td id="s6"></td><td id="s5"></td><td id="s4"></td>
+<td id="s3"></td><td id="s2"></td><td id="s1"></td><td id="s0"></td></tr>
+</table>
+<script>
+function timer(){
+	var now = new Date();
+	var hh = now.getHours();
+	var ss = now.getSeconds();
+	var mm = now.getMinutes();
+
+	document.getElementById("hour").innerHTML = "Hours: " + hh;
+	document.getElementById("minute").innerHTML = "Minutes: " + mm;
+	document.getElementById("second").innerHTML = "Seconds: " + ss;
+	
+	if( ss % 2 >= 1){
+		show("s0", "red");}
+		else {
+			show("s0", "cyan")
+		}	
+	if( ss % 4 >= 2){
+		show("s1", "red");}
+		else {
+			show("s1", "cyan")
+		}
+	if( ss % 8 >= 4){
+		show("s2", "red");}
+		else {
+			show("s2", "cyan")
+		}
+	if( ss % 16 >= 8){
+		show("s3", "red");}
+		else {
+			show("s3", "cyan")
+		}
+	if( ss % 32 >= 16){
+		show("s4", "red");}
+		else {
+			show("s4", "cyan")
+		}
+	if( ss % 64 >= 32){
+		show("s5", "red");}
+		else {
+			show("s5", "cyan")
+		}
+	if( ss % 128 >= 64){
+		show("s6", "red");}
+		else {
+			show("s6", "cyan")
+		}
+		
+	if( mm % 2 >= 1){
+		show("m0", "red");}
+		else {
+			show("m0", "cyan")
+		}	
+	if( mm % 4 >= 2){
+		show("m1", "red");}
+		else {
+			show("m1", "cyan")
+		}
+	if( mm % 8 >= 4){
+		show("m2", "red");}
+		else {
+			show("m2", "cyan")
+		}
+	if( mm % 16 >= 8){
+		show("m3", "red");}
+		else {
+			show("m3", "cyan")
+		}
+	if( mm % 32 >= 16){
+		show("m4", "red");}
+		else {
+			show("m4", "cyan")
+		}
+	if( mm % 64 >= 32){
+		show("m5", "red");}
+		else {
+			show("m5", "cyan")
+		}
+	if( mm % 128 >= 64){
+		show("m6", "red");}
+		else {
+			show("m6", "cyan")
+		}
+		
+	if( hh % 2 >= 1){
+		show("h0", "red");}
+		else {
+			show("h0", "cyan")
+		}	
+	if( hh % 4 >= 2){
+		show("h1", "red");}
+		else {
+			show("h1", "cyan")
+		}
+	if( hh % 8 >= 4){
+		show("h2", "red");}
+		else {
+			show("h2", "cyan")
+		}
+	if( hh % 16 >= 8){
+		show("h3", "red");}
+		else {
+			show("h3", "cyan")
+		}
+	if( hh % 32 >= 16){
+		show("h4", "red");}
+		else {
+			show("h4", "cyan")
+		}
+	if( hh % 64 >= 32){
+		show("h5", "red");}
+		else {
+			show("h5", "cyan")
+		}
+	if( hh % 128 >= 64){
+		show("h6", "red");}
+		else {
+			show("h6", "cyan")
+		}
+	}
+function show(s, c){
+	document.getElementById(s).style.backgroundColor = c;	
+}
+setInterval(timer, 500);
+timer();
+</script>
+</body>
+</html>

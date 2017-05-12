@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoBookSales</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+	text-height: 2em;
+ }
+ .quantity{width: 5em;}
+ .longText{width: 40em;}
+</style>
+<script>
+var book1Total, book2Total, book3Total;
+var quantity1, quantity2, quantity3;
+var totalTax, TotalPrice;
+var message = "";
+
+
+
+
+function calculateSale(){
+	
+	var quantity1 = document.getElementById("q1").value;
+	var quantity2 = document.getElementById("q2").value;
+	var quantity3 = document.getElementById("q3").value;
+
+	var book1Total = (quantity1) * 12.69;
+	var book2Total = (quantity2) * 14.99;
+	var book3Total = (quantity3) * 9.99;
+
+	document.getElementById("total1").innerHTML = book1Total;
+	document.getElementById("total2").innerHTML = book2Total;
+	document.getElementById("total3").innerHTML = book3Total;
+
+	var totalTax = ((book1Total + book2Total + book3Total) * .07);
+	var totalPrice = ((book1Total + book2Total + book3Total) + totalTax);
+
+	document.getElementById("totalTax").innerHTML = totalTax.toFixed(2);
+	document.getElementById("totalPrice").innerHTML = totalPrice.toFixed(2);
+	
+	console.log(book1Total, book2Total, book3Total, totalTax, totalPrice, document.getElementById("address").value, document.getElementById("name").value);
+	
+	//createMessage();
+	
+	var message = "";
+	document.getElementById("receipt").innerHTML = message;
+	var totalPrice;
+
+
+
+	message = "Name: " + document.getElementById("name").value;
+	message += "\nAddress: " + document.getElementById("address").value;
+	message += "\nTotal Price After Tax: $" + totalPrice.toFixed(2) + " for your " + (Number(quantity1 + quantity2 + quantity3)) + " books";
+	message += "\nThank You, Come Again";
+	
+	console.log(message);
+	document.getElementById("receipt").innerHTML = message;
+	
+	
+	
+}
+
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>
+demoBookSales<br>
+<span style="visibility:hidden;">-</span></h1><br>
+<form name="myForm">
+<table width="40%" height="75%" border="1">
+  <tbody>
+    <tr>
+      <td colspan="1">Name:</td>
+      <td colspan="3"><input type="text" id="name" class="longText"></td>
+    </tr>
+    <tr>
+      <td colspan="1">Address:</td>
+      <td colspan="3"><input type="text" id="address" class="longText"></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td>Title</td>
+      <td>Price</td>
+      <td>Total</td>
+    </tr>
+    <tr>
+      <td><input type="number" min="0" id="q1" required class="quantity"></td>
+      <td>Mein Kampf - Adolf Hitler</td>
+      <td>$12.69</td>
+      <td id="total1">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="number" min="0" id="q2" required class="quantity"></td>
+      <td>Communist Manifesto - Karl Marx</td>
+      <td>$14.99</td>
+      <td id="total2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="number" min="0" id="q3" required class="quantity"></td>
+      <td>Green Eggs and Ham - Dr. Seuss</td>
+      <td>$9.99</td>
+      <td id="total3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Print Receipt" onClick="calculateSale();"></td>
+      <td>Tax:</td>
+      <td id="tax">7%</td>
+      <td id="totalTax">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="reset" value="Clear Fields"></td>
+      <td colspan="2">Total:</td>
+      <td id="totalPrice">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4"><textarea readonly id="receipt" cols="100" rows="30"></textarea></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>

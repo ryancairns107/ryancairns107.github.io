@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoDice</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+
+function rollDice(){
+
+var diceNumber1 = Math.floor((Math.random() * 6+1));
+var diceNumber2 = Math.floor((Math.random() * 6+1));
+var diceNumber = (diceNumber1 + diceNumber2)
+
+if(diceNumber1 < 1 || diceNumber1 > 6){
+	alert('num not between 1 and 6 (inclusive)');	
+}
+if(diceNumber2 < 1 || diceNumber2 > 6){
+	alert('num not between 1 and 6 (inclusive)');	
+}
+
+
+
+ 
+document.getElementById('diceOut1').src = "dice" + diceNumber1 + ".png";
+document.getElementById('diceOut2').src = "dice" + diceNumber2 + ".png";
+document.getElementById('numberOut').value = diceNumber
+document.getElementById('numberOut1').value = diceNumber1;
+document.getElementById('numberOut2').value = diceNumber2;
+
+
+
+}
+</script>
+</head>
+
+<body onLoad="rollDice();">
+<h1 style="margin-top: -8px"><br>
+demoDice<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<img src="dice6.png" id="diceOut1" onClick="rollDice();" alt="/">
+<img src="dice6.png" id="diceOut2" onClick="rollDice();" alt="/">
+<br>
+<input type="number" readonly id="numberOut1">
++
+<input type="number" readonly id="numberOut2">
+<br>=<br>
+<input type="number" readonly id="numberOut">
+
+
+</body>
+</html>

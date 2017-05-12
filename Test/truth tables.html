@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>truth table</title>
+<style>
+
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+	
+}
+h1, h2, h3, h4, h5, h6, h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+body {
+	background-color: #D5D5D5;
+	color: black;
+	font-size:24px;
+}
+* {
+	text-align: center;
+}
+
+
+
+table { margin: auto; border-spacing: 0px; border-collapse: collapse; }
+td { text-align: center; width: 10%; border: solid 1px black; }
+.green { color: green; background-color: lime; }
+.red { color: red; background-color: pink; }
+</style>
+
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>
+  truth tables<br>
+  <span style="visibility:hidden;">-</span></h1>
+<br>
+<table width="75%">
+  <tr>
+    <th colspan="2">~(Not)</th>
+    <th style="border-top: 0px; border-bottom: 0px;"></th>
+    <th colspan="3">^(And)</th>
+    <th style="border-top: 0px; border-bottom: 0px;">&nbsp;</th>
+    <th colspan="3">V(Or)</th>
+  </tr>
+  <tr>
+    <td>p</td>
+    <td>~p</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>p</td>
+    <td>q</td>
+    <td>p^q</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>p</td>
+    <td>q</td>
+    <td>pvq</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td onClick="this.innerHTML = 'F'; this.style.color = 'red'; this.style.backgroundColor = 'pink';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>T</td>
+    <td>T</td>
+    <td onClick="this.innerHTML = 'T'; this.style.color = 'green'; this.style.backgroundColor = 'lime';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>T</td>
+    <td>T</td>
+    <td onClick="this.innerHTML = 'T'; this.style.color = 'green'; this.style.backgroundColor = 'lime';">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td onClick="this.innerHTML = 'T'; this.style.color = 'green'; this.style.backgroundColor = 'lime';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>T</td>
+    <td>F</td>
+    <td onClick="this.innerHTML = 'F'; this.style.color = 'red'; this.style.backgroundColor = 'pink';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>T</td>
+    <td>F</td>
+    <td onClick="this.innerHTML = 'T'; this.style.color = 'green'; this.style.backgroundColor = 'lime';">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="border: 0px;">&nbsp;</td>
+    <td style="border: 0px;">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px; border-left: 0px;">&nbsp;</td>
+    <td>F</td>
+    <td>T</td>
+    <td onClick="this.innerHTML = 'F'; this.style.color = 'red'; this.style.backgroundColor = 'pink';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>F</td>
+    <td>T</td>
+    <td onClick="this.innerHTML = 'T'; this.style.color = 'green'; this.style.backgroundColor = 'lime';">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="border: 0px;">&nbsp;</td>
+    <td style="border: 0px;">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px; border-left: 0px;">&nbsp;</td>
+    <td>F </td>
+    <td>F </td>
+    <td onClick="this.innerHTML = 'F'; this.style.color = 'red'; this.style.backgroundColor = 'pink';">&nbsp;</td>
+    <td style="border-top: 0px; border-bottom: 0px;">&nbsp;</td>
+    <td>F </td>
+    <td>F </td>
+    <td onClick="this.innerHTML = 'F'; this.style.color = 'red'; this.style.backgroundColor = 'pink';">&nbsp;</td>
+  </tr>
+</table>
+<br>
+<button onClick="location.reload();">reset tables</button>
+</body>
+
+</html>

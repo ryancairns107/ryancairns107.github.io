@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test calendar</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+var today = new Date(); // Returns current date and time
+var myBirthday = new Date("11/25/1954"); // Sets date
+var presidentsDay = new Date("02/20/2017"); // Sets date
+
+function formatDate(d) { // Where "d" is a valid Date object
+   var mm = d.getMonth() + 1;
+   if(mm < 10) { mm = "0" + mm; }
+   var dd = d.getDate();
+   if(dd < 10) { dd = "0" + dd; }
+   var yy = d.getFullYear();
+   yy = yy.toString().substr(2,2);
+   var mdy = mm + "/" + dd + "/" + yy;
+   return mdy;
+}
+
+function getTime(d) { // Where "d" is a valid Date object
+   var hh = d.getHours();
+   if(hh < 10) { hh = "0" + hh; }
+   var mn = d.getMinutes();
+   if(mn < 10) { mn = "0" + mn; }
+   var ss = d.getSeconds();
+   if(ss < 10) { ss = "0" + ss; }
+   var hms = hh + ":" + mn + ":" + ss;
+   return hms;
+}
+
+function compareDates() {
+   date1 = new Date(document.getElementById("date1").value);
+   date2 = new Date(document.getElementById("date2").value);
+   var d1 = date1.getTime();
+   var d2 = date2.getTime();
+   var diff = d1 - d2;
+   diff = Math.abs(Math.floor(diff / 86400000));
+   message = "There are " + diff + " days\nbetween " + formatDate(date1) + " and " + formatDate(date2);
+   document.getElementById("message").value = message;
+}
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>test Calendar<br>
+<span style="visibility:hidden;">-</span></h1>
+<table>
+<form>
+<tr>
+  <td>First Date</td>
+  <td><input type="date" id="date1" /></td></tr>
+<tr>
+  <td>Second Date</td>
+  <td><input type="date" id="date2" /></td></tr>
+<tr><td><input type="reset" value="Clear" onClick="clearAll();" /></td><td><input type="button" value="Calculate Days" onClick="compareDates();" /></td></tr>
+<tr><td colspan="2"><textarea name="message" rows="5" id="message"></textarea></td></tr>
+</form>
+</table>
+</body>
+</html>

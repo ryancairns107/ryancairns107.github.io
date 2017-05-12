@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo Random</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }\
+</style>
+<script>
+var number = 0, guess = 0, i = 7, message = "";
+function checkGuess() {
+	guess = document.getElementById("guess").value;
+	if(guess == "") {
+		message = "You must enter a guess";
+	} else if(isNaN(guess)) {
+		message = "Your guess should be a number";
+	} else {
+		if(guess > number) {
+			message = "Your guess of " + guess + " is too high.";
+		} else  if(guess < number) {
+			message = "Your guess of " + guess + " is too low.";
+		} else {
+			newGame()
+			message = "You got it! My number was " + number + "\nClick [New Game] to play again";
+			document.getElementById("guessButton").style.visibility = "hidden";
+		}
+		i--;
+		document.getElementById("yourGuess").innerHTML = "You have " + i + " guesses left";
+		document.getElementById("guess").value = "";
+		document.getElementById("guess").focus();
+	}
+		if ( i < 1 ){
+			alert('out of guesses')
+			newGame()	
+		}
+	document.getElementById("message").value = message;
+}
+function newGame() {
+	number = Math.floor(Math.random() * 100) + 1;
+	document.getElementById("yourGuess").innerHTML = "Can you guess my number?";
+	document.getElementById("message").value = "Okay, I have another number. Try to guess.";
+	document.getElementById("guessButton").style.visibility = "visible";
+	document.getElementById("guess").value = "";
+	document.getElementById("guess").focus();
+	i = 7;
+}
+</script>
+</head>
+
+<body onLoad="newGame()">
+<h1 style="margin-top: -8px"><br>Math.random() demo<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<form name="myForm">
+<table>
+<tr><th colspan="3">I am thinking of a number between 1 and 100 inclusive</th></tr>
+<tr><th colspan="3">Can you guess my number?</th></tr>
+<tr><td id="yourGuess" style="width: 40%;">Your Guess:</td>
+    <td style="width: 20%;"><input type="text" id="guess" /></td>
+    <td style="width: 40%;"><input type="button" value="Check Guess" id="guessButton" onClick="checkGuess();" /></td></tr>
+<tr><td height="80" colspan="3"><textarea height="80" id="message"></textarea></td></tr>
+<tr><td colspan="3"><input type="button" value="New Game" onClick="newGame();" /></td></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bank</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+var accNum = 0; var b = 0; var message = "";
+var account = new Array(9);
+var balance = new Array(9);
+for(i=0;i<account.length;i++) {
+    account[i] = i;
+    balance[i] = i * 100;
+}
+
+function validAccount() {
+    message = "";
+    accNum = document.getElementById("accNum").value;
+    if(accNum >= 0 && accNum < account.length) {
+        return true;
+    } else {
+        message = "Invalid Account Number";
+        writeMessage();
+        return false;
+    }
+}
+
+function writeMessage() {
+    document.getElementById("message").value = message;
+    document.getElementById("accNum").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("accNum").focus();
+}
+
+function showAll() {
+    message = "";
+    for(i=0;i<account.length;i++) {
+        message += "Account #: " + i + " Balance: $" + balance[i].toFixed(2) + "\n";
+    }
+    writeMessage();
+}
+
+function getBalance() {
+    message = "";
+    if(validAccount()) {
+        message += "Account #: " + accNum + " Balance: $" + balance[accNum].toFixed(2);
+    }
+    writeMessage();
+}
+
+function setBalance(t) {
+    message = "";
+    if(validAccount()) {
+        var amount = 1 * document.getElementById("amount").value;
+        if(amount < 0) {
+            message = "Invalid Amount";
+        } else if(t == "d") {
+            balance[accNum] += amount;
+            message = "Account #: " + accNum + " Balance: $" + balance[accNum].toFixed(2);
+        } else if(t == "w") {
+            if(amount <= balance[accNum]) {
+            balance[accNum] -= amount;
+                message = "Account #: " + accNum + " Balance: $" + balance[accNum].toFixed(2);
+            } else {
+                message = "Account #: " + accNum + " Insufficient Balance to Withdraw $" + amount.toFixed(2);
+            }
+        } else {
+            message = "Unknown";
+        }
+    }
+    writeMessage();
+}
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoBank<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<table width="65%" border="1">
+  <tbody>
+    <tr>
+      <td>Account Number</td>
+      <td><input type="number" min="0" id="accNum"></td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td><input type="number" min="1" id="amount"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Deposit" onClick="setBalance('d');"></td>
+      <td><input type="button" value="Withdraw" onClick="setBalance('w');"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="New Account" onClick="newAccount();"></td>
+      <td><input type="button" value="Show Balance" onClick="getBalance();"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><textarea readonly cols="125" rows="30" id="message"></textarea></td>
+    </tr>
+    <tr>
+      <td>Testing:</td>
+      <td><input type="button" value="Show All"  onClick="showAll();"></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

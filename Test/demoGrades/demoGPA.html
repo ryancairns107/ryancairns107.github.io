@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoGPA</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoGPA<br>
+<span style="visibility:hidden;">-</span></h1>
+<form>
+<table>
+<tr><td colspan="2">Grades:</td></tr>
+<script>
+var hm = prompt("How many grades?", 10); //check w/ user how many prompts they want
+
+var grade = new Array(hm); // Array to hold grades
+var total = 0; // Total of all grades
+var count = 0; // How many grades to be averaged
+var gpa = 0; // Answer
+var message = ""; // Message to user
+
+function calcGPA(){ //calcGPA
+total = 0; gpa = 0; message = "";
+
+	for(i=1; i<=hm; i++){ //create as many arrays as hm is, with autofill w/ gradeID
+		grade[i] = 1 * document.getElementById("grade" + i).value;
+		total += grade[i];
+	}
+
+	
+	message = "Total: " + total + "\nOut of: " + hm*100 + " possible points";
+	var gpa = total/hm
+	message += "\nGPA: " + gpa.toFixed(2);
+	document.getElementById("message").value = message; //create message box text
+	var sGPA = Math.ceil(gpa/10)
+
+switch(sGPA){
+	case 0: message += "\nLetter Grade = F";
+	break;
+	
+	case 1: message += "\nLetter Grade = F";
+	break;
+	
+	case 2: message += "\nLetter Grade = F";
+	break;
+	
+	case 3: message += "\nLetter Grade = F";
+	break;
+	
+	case 4: message += "\nLetter Grade = F";
+	break;
+	
+	case 5: message += "\nLetter Grade = F";
+	break;
+	
+	case 6: message += "\nLetter Grade = F";
+	break;
+	
+	case 7: message += "\nLetter Grade = D";
+	break;
+	
+	case 8: message += "\nLetter Grade = C";
+	break;
+	
+	case 9: message += "\nLetter Grade = B";
+	break;
+	
+	case 10: message += "\nLetter Grade = A";
+	break;
+	
+	default: message += "broke";
+	break;
+}
+}
+
+for(i=1;i<=hm;i++) { //create input list
+	document.write('<tr><td>Assignment ' + i + ":" + '</td><td><input type="number" id="grade' + i + '" value="100" min="0"></td></tr>');
+}
+
+for(i=1;i<=hm;i++) {
+	document.getElementById("grade" + i).value = Math.floor((Math.random()*100));
+}
+
+document.getElementById("message").value = message;
+</script>
+<tr><td><input type="reset" /></td>
+	<td><input type="button" value="Calc GPA" onClick="calcGPA();" /></td></tr>
+<tr><td colspan="2"><textarea id="message" cols="125" rows="30" readonly></textarea></td></tr>
+</table>
+</form>
+</body>
+</html>

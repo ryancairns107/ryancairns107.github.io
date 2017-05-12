@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoSqrt</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+
+var number = 0;
+var newNumber = 0;
+var message = "";
+var randomNumber = 0;
+
+
+function Sqrt(){
+	
+	var number = document.getElementById('myNumb').value;
+	
+	message = "Your Square root is: \n";
+	
+	var randomNumber = (Math.floor((Math.random() * (1 + number))))
+	console.log("Guessed Number: " + randomNumber + '\nActual Square Root: ' + Math.sqrt(number));
+	if(randomNumber == Math.sqrt(number)){
+		message += Math.sqrt(number);	
+	}
+	else{
+		message += randomNumber;
+		Sqrt();	
+	}
+	
+	
+	
+	document.getElementById('message').innerHTML = message;
+	
+}
+
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoSqrt<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<form name="myForm">
+<table width="75%" border="1">
+  <tbody>
+    <tr>
+      <td>Square (Please only perfect squares):</td>
+      <td><input type="number" id="myNumb" min="1"></td>
+    </tr>
+    <tr>
+      <td><input type="reset"></td>
+      <td><input type="button" onClick="Sqrt()" value="Find Root"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><textarea readonly name="message" id="message" rows="35" cols="100"></textarea></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>

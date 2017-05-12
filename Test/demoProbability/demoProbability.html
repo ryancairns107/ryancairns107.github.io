@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+function demoDice(){
+
+var hm = prompt("How many simulations?", 100000)
+var d1 = 0; d2 = 0;
+var d1n1 = 0; d1n2 = 0; d1n3 = 0; d1n4 = 0; d1n5 = 0; d1n6 = 0;
+var d2n1 = 0; d2n2 = 0; d2n3 = 0; d2n4 = 0; d2n5 = 0; d2n6 = 0;
+
+	for(x=1;x<=hm;x++){
+		d1 = Math.ceil(Math.random()*6);
+		d2 = Math.ceil(Math.random()*6);
+	
+	switch(d1){
+		case 1: d1n1++; break;
+		case 2: d1n2++; break;
+		case 3: d1n3++; break;
+		case 4: d1n4++; break;
+		case 5: d1n5++; break;
+		case 6: d1n6++; break;
+	}
+	
+	switch(d2){
+		case 1: d2n1++; break;
+		case 2: d2n2++; break;
+		case 3: d2n3++; break;
+		case 4: d2n4++; break;
+		case 5: d2n5++; break;
+		case 6: d2n6++; break;
+	}
+	
+	
+	}	
+
+/*for(x = 1; x<=6; x++){
+	document.getElementById("d1n" + x).innerHTML = parseInt("d1n" + x); //broken
+	document.getElementById("d2n" + x).innerHTML = parseInt("d2n" + x); //broken
+	
+}*/
+	document.getElementById("d1n1").innerHTML = d1n1;
+	document.getElementById("d1n2").innerHTML = d1n2;
+	document.getElementById("d1n3").innerHTML = d1n3;
+	document.getElementById("d1n4").innerHTML = d1n4;
+	document.getElementById("d1n5").innerHTML = d1n5;
+	document.getElementById("d1n6").innerHTML = d1n6;
+	
+	document.getElementById("d2n1").innerHTML = d2n1;
+	document.getElementById("d2n2").innerHTML = d2n2;
+	document.getElementById("d2n3").innerHTML = d2n3;
+	document.getElementById("d2n4").innerHTML = d2n4;
+	document.getElementById("d2n5").innerHTML = d2n5;
+	document.getElementById("d2n6").innerHTML = d2n6;
+}
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoProbability<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<table width="75%" border="1">
+  <tbody>
+    <tr>
+      <td>Dice 1:</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td id="d1n1">&nbsp;</td>
+      <td id="d1n2">&nbsp;</td>
+      <td id="d1n3">&nbsp;</td>
+      <td id="d1n4">&nbsp;</td>
+      <td id="d1n5">&nbsp;</td>
+      <td id="d1n6">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Dice 2:</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td id="d2n1">&nbsp;</td>
+      <td id="d2n2">&nbsp;</td>
+      <td id="d2n3">&nbsp;</td>
+      <td id="d2n4">&nbsp;</td>
+      <td id="d2n5">&nbsp;</td>
+      <td id="d2n6">&nbsp;</td>
+    </tr>
+   <!-- <tr>
+      <td>Both Dice:</td>
+      <td">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr> -->
+  </tbody>
+</table>
+<input type="button" onClick="demoDice();" value="Roll the Dice">
+</body>
+</html>

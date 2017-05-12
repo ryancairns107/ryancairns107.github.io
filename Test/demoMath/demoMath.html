@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Meth Game</title>
+<script>
+var num1; // First number in problem
+var num2; // Second number in problem
+var opera; // Arithmetic operation
+var rightAnswer; // The correct answer
+var userGuess; // The user guess answer
+var message; // A message to display
+var temp; // Temporary holding variable
+
+function newProblem() {
+	num1 = Math.floor(Math.random() * 12) + 1;
+	num2 = Math.floor(Math.random() * 12) + 1;
+	opera = Math.floor(Math.random() * 4) + 1;
+	switch (opera) {
+		case 1: opera = "+";
+			rightAnswer = num1 + num2;
+			break;
+		case 2: opera = "-";
+			if(num1 < num2) {
+				temp = num1;
+				num1 = num2;
+				num2 = temp;
+			}
+			rightAnswer = num1 - num2;
+			break;
+		case 3: opera = "*";
+			rightAnswer = num1 * num2;
+			break;
+		case 4: opera = "/";
+			rightAnswer = num2;
+			num1 = num1 * num2;
+			num2 = num1 / rightAnswer;
+			break;
+	}
+    document.getElementById("expression").innerHTML = "" + num1 + " " + opera + " " + num2 + " =";
+    document.getElementById("message").value = "";
+    document.getElementById("checkAnswerButton").style.visibility = "visible";
+    document.getElementById("message").style.color = "black";
+    document.getElementById("message").style.backgroundColor = "white";
+    message = "Try this one?";
+    document.getElementById("userGuess").value = "";
+    document.getElementById("userGuess").focus();
+}
+
+function checkAnswer() {
+	userGuess = document.getElementById("userGuess").value;
+	if(userGuess == rightAnswer) {
+		message = "Yes, " + userGuess + " is the correct answer";
+		document.getElementById("message").style.color = "green";
+		document.getElementById("message").style.backgroundColor = "lime";
+		document.getElementById("checkAnswerButton").style.visibility = "hidden";
+	} else {
+		message = "No, " + userGuess + " is incorrect";
+		document.getElementById("message").style.color = "red";
+		document.getElementById("message").style.backgroundColor = "pink";
+	}
+	document.getElementById("message").value = message;
+	document.getElementById("userGuess").value = null
+	document.getElementById("userGuess").focus();
+}
+</script>
+
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+	width: 40%
+ }
+</style>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>Math Game<br>
+<span style="visibility:hidden;">-</span></h1>
+<form name="myForm">
+<table>
+<tr><th>Problem:</th><th>Your Answer:</th></tr>
+<tr><td id="expression" style="font-size: 1.2em;"></td><td><input type="text" size="5" id="userGuess" /></td></tr>
+<tr><td><input type="button" value="New Problem" onClick="newProblem();" /></td><td><input type="button" value="Check Answer" id="checkAnswerButton" onClick="checkAnswer();" /></td></tr>
+<tr><td colspan="2"><textarea id="message" readonly></textarea></td></tr>
+</table>
+</form>
+</body>
+</html>

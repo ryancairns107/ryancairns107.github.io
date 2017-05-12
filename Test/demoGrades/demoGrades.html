@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+
+var message = "";
+var letterGrade = 'F';
+var numberGrade = 0;
+
+function checkGrade(){
+	numberGrade = document.getElementById('gradeEntry').value;
+	
+	if(numberGrade > 100){
+		alert('Please enter a number under 100')	
+	}
+	
+		else if(numberGrade >= 93 && numberGrade <= 100 ){
+			letterGrade = 'A'	
+		}
+		else if(numberGrade >= 85){
+		letterGrade = 'B'	
+	}
+		else if(numberGrade >= 75){
+		letterGrade = 'C'	
+	}
+		else if(numberGrade >= 70){
+		letterGrade = 'D'	
+	}
+		else if(numberGrade <= 65){
+		letterGrade = 'F'	
+	}
+	alert(numberGrade + "," + letterGrade);
+	var message = "Number Grade: " + numberGrade + "\nLetter Grade: " + letterGrade;
+	document.getElementById("message").innerHTML = message;
+}
+
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoGrades<br>
+<span style="visibility:hidden;">-</span></h1>
+<form name="myForm">
+<table>
+
+<tr>
+<td>Number Grade (0-100)</td>
+<td><input type="number" min="0" max="100" id="gradeEntry" /></td></tr>
+<tr><td><input type="button" value="Clear Boxes" id="clearAll"/></td>
+<td><input type="button" value="Check Grade" onClick="checkGrade();" /></td>
+</tr>
+<tr><td colspan="2"><textarea id="message" readonly></textarea></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

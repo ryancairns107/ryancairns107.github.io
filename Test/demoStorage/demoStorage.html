@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demo - session storage</title>
+<script>
+function cookieClicker(){
+	
+	
+	var multiplier, cookies, reveal;
+	
+	cookies = localStorage.remember;
+	
+	multiplier = Number(document.getElementById("multiNumb").value);
+	
+	if (1==1){
+    localStorage.remember = (Number(localStorage.remember) + 1*multiplier)};
+	alert(localStorage.remember);
+}
+
+function clearStorage(){
+
+	localStorage.remember = 0;
+}
+
+function noUnfefined(){
+	
+	if (localStorage.remember == NaN) {localStorage.remember = Number(0)};
+}
+</script>
+</head>
+<body onLoad="noUndefined()">
+<h1>localStorage Clicker</h1>
+<hr>
+<h2> Total cookies (all-time) : <input type="text" id="totalNumb">
+</h2>
+<hr>
+<br>
+<p><input type="button" value="+Cookies" onClick="cookieClicker()"></p>
+
+
+<br><p>Range Multiplier: <input type="number" value="1" min="1" max="100" id="multiNumb"></p>
+
+<br><p>Clear Total Cookies <input type="button" value="Clear localStorage" id="dontPress" onClick="clearStorage()"></p>
+</body>
+</html>

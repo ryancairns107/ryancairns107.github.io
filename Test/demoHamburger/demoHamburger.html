@@ -1,0 +1,45 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Dragon Sandwich</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; font-size: 30px; 
+	text-align: center; color: blue; background-color: cyan; }
+table { text-align: center; color: black; background-color: rgba(210,210,255,1); margin: auto; }
+</style>
+<script>
+function allowDrop(ev) { ev.preventDefault(); }
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+function drop(ev) { ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body><span ondrop="drop(event)" ondragover="allowDrop(event)">
+<h2>Cairnsmeister Sandwichmaker<br />
+Drag to Build-Your-Own Sandwich</h2>
+<table border="1">
+<tr><td style="width: 500px;">Available Ingredients</td><td style="width: 100px;">Your Sandwich</td></tr>
+<tr><td id="td1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 500px; height: 200px;">
+	<img id="img1" src="hamburgerBunTop.png" alt="Bun Top" draggable="true" ondragstart="drag(event)" />
+	<img id="img3" src="hamburgerBacon.png" alt="Bacon" draggable="true" ondragstart="drag(event)" />
+	<img id="img5" src="hamburgerHam.png" alt="Ham" draggable="true" ondragstart="drag(event)" />
+	<img id="img8" src="hamburgerPatty.png" alt="Patty" draggable="true" ondragstart="drag(event)" />
+	<img id="img6" src="hamburgerLettuce.png" alt="Lettice" draggable="true" ondragstart="drag(event)" />
+	<img id="img7" src="hamburgerOnion.png" alt="Onion" draggable="true" ondragstart="drag(event)" />
+	<img id="img9" src="hamburgerPepper.png" alt="Pepper" draggable="true" ondragstart="drag(event)" />
+	<img id="img10" src="hamburgerPineapple.png" alt="Pineapple" draggable="true" ondragstart="drag(event)" />
+	<img id="img11" src="hamburgerTomato.png" alt="Tomato" draggable="true" ondragstart="drag(event)" />
+	<img id="img12" src="hamburgerMayo.png" alt="White Cheese" draggable="true" ondragstart="drag(event)" />
+	<img id="img13" src="hamburgerCheese.png" alt="Yellow Cheese" draggable="true" ondragstart="drag(event)" />
+	<img id="img2" src="hamburgerBunBottom.png" alt="Bun Bottom" draggable="true" ondragstart="drag(event)" />
+</td>
+	<td id="td2" rowspan="2" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 100px;"></td></tr>
+<tr><td style="width: 500px;">Ingredients: Bun top, bacon, ham, beef hamburger patty, pickles and lettuce, onion, sliced red pepper, pineapple slice, tomato, two types of cheeses, bun bottom</td></tr>
+</table>
+</span>
+</body>
+</html>

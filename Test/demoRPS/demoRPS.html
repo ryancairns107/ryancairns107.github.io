@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoRPS</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+
+function RPS(p){
+	
+switch(p){
+	case 1: document.getElementById('player').src = "rock.png";
+	
+	break;
+	
+	case 2: document.getElementById('player').src = "paper.png";
+	
+	break;
+	
+	case 3: document.getElementById('player').src = "scissors.png";
+	
+	break;
+	}
+var ai = Math.floor((Math.random() * 3+1));
+
+switch(ai){
+	case 1: document.getElementById('computer').src = "rock.png";
+	break;
+	
+	case 2: document.getElementById('computer').src = "paper.png";
+	break;
+
+	case 3: document.getElementById('computer').src = "scissors.png";
+	break;
+}
+}
+
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>
+Rock Paper Scissors<br>
+<span style="visibility:hidden;">-</span></h1><br>
+<table width="60%" border="1">
+  <tbody>
+    <tr>
+		<td>Your Choice:</td>
+      <td><input type="button" value="Rock" id="rockB" onClick="RPS(1)">
+      <input type="button" value="Paper" id="paperB" onClick="RPS(2)">
+      <input type="button" value="Scissors" id="scissorsB" onClick="RPS(3)">
+
+      
+       </td>
+      
+      <td><img id="player" alt="/" width="150px" height="150px"></td>
+    </tr>
+    <tr>
+     <td>Computer Choice:</td>
+      <td colspan="2"><img id="computer" alt="/" width="150px" height="150px"></td>
+    </tr>
+    <tr>
+      <td>Outcome:</td>
+      <td colspan="2"><textarea readonly id="myMessage"></textarea></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Drag and Drop Lists</title>
+<style>
+body, table { font-size: 30px; text-align: center; margin: auto; }
+td { width: 300px; height: 200px; text-align: left; vertical-align: top; border: solid 2px black; }
+</style>
+<script>
+function allowDrop(ev) { ev.preventDefault(); }
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+<p>Drag the people into different teams</p>
+<table border="0"><tr>
+    <td id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+    <td id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <span id="drag1" draggable="true" ondragstart="drag(event)"> Genji </span>
+    <span id="drag2" draggable="true" ondragstart="drag(event)"> McCree </span>
+    <span id="drag3" draggable="true" ondragstart="drag(event)"> Pharah </span>
+    <span id="drag4" draggable="true" ondragstart="drag(event)"> Reaper </span>
+    <span id="drag5" draggable="true" ondragstart="drag(event)"> Soldier: 76 </span>
+    <span id="drag6" draggable="true" ondragstart="drag(event)"> Sombra </span>
+    <span id="drag7" draggable="true" ondragstart="drag(event)"> Tracer </span>
+    <span id="drag8" draggable="true" ondragstart="drag(event)"> Bastion </span>
+    <span id="drag9" draggable="true" ondragstart="drag(event)"> Hanzo </span>
+    <span id="drag10" draggable="true" ondragstart="drag(event)"> Hanzo </span>
+    <span id="drag11" draggable="true" ondragstart="drag(event)"> Junkrat </span>
+    <span id="drag12" draggable="true" ondragstart="drag(event)"> Mei </span>
+    <span id="drag13" draggable="true" ondragstart="drag(event)"> Torbjorn </span>
+    <span id="drag14" draggable="true" ondragstart="drag(event)"> Widowmaker </span>
+    <span id="drag15" draggable="true" ondragstart="drag(event)"> D.VA </span>
+    <span id="drag16" draggable="true" ondragstart="drag(event)"> Orisa </span>
+    <span id="drag17" draggable="true" ondragstart="drag(event)"> Reinhardt </span>
+    <span id="drag18" draggable="true" ondragstart="drag(event)"> Roadhog </span>
+    <span id="drag19" draggable="true" ondragstart="drag(event)"> Winston </span>
+    <span id="drag20" draggable="true" ondragstart="drag(event)"> Zarya </span>
+    <span id="drag21" draggable="true" ondragstart="drag(event)"> Ana </span>
+    <span id="drag22" draggable="true" ondragstart="drag(event)"> Lucio </span>
+    <span id="drag23" draggable="true" ondragstart="drag(event)"> Mercy </span>
+    <span id="drag24" draggable="true" ondragstart="drag(event)"> Symmetra </span>
+    <span id="drag25" draggable="true" ondragstart="drag(event)"> Zenyatta </span>
+    </td>
+    <td id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+</tr></table>
+</body>
+</html>

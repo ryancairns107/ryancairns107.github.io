@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demoPayroll</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+<script>
+var hPay = 0;
+	hours = 0;
+	gross = 0;
+	taxes = 0;
+	net = 0;
+	overtimeH = 0;
+	overtimeP = 0;
+	message = "";
+function getPay() {
+	message = "";
+	hPay = document.getElementById("Payrate").value;
+	hours = document.getElementById("hours").value;
+	if(hPay == "" || isNaN(hPay)) {message = "hPay must be a number";}
+	if(hours == "" || isNaN(hours)) {message = "Hours must be a number";}
+	if(hours <= 40) {
+		gross = hPay * hours;
+	} else {
+		overtimeH = hours - 40;
+		overtimeP = ((overtimeH) + (hPay * 1.5));
+		gross = ((hPay * hours) + overtimeP)
+;
+	}
+	taxes = gross * .2;
+	net = gross - taxes;
+	message = "Pay: $" + (1 * hPay).toFixed(2) + "\n";
+	message += "Hours: " + hours + "\n";
+	message += "Overtime Hours: " + overtimeH.toFixed(2) + "\n";
+	message += "Pay From Overtime: $" + overtimeP.toFixed(2) + "\n";
+	message += "Gross: $" + gross.toFixed(2) + "\n";
+	message += "Taxes: $" + taxes.toFixed(2) + "\n";
+	message += "Net: $" + net.toFixed(2);
+	document.getElementById("message").value = message;
+}
+
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>demoPayroll<br>
+<span style="visibility:hidden;">-</span></h1>
+<table>
+<form>
+<tr>
+  <td>Hours</td>
+  <td><input type="number" min="0" id="hours" /></td></tr>
+<tr>
+  <td>Payrate</td>
+  <td><input type="number" min="0" id="Payrate" /></td></tr>
+<tr><td><input type="reset" value="Clear" /></td><td><input type="button" value="Calculate Pay" onClick="getPay();" /></td></tr>
+<tr><td colspan="2"><textarea name="message" rows="10" id="message"></textarea></td></tr>
+</form>
+</table>
+</body>
+</html>

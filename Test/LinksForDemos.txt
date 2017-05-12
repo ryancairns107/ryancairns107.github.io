@@ -1,0 +1,23 @@
+Test/demo8ball/demo8ball.html
+Test/demoBank/demoBank.html
+Test/demoBinaryClock/demoBinaryClocl.html
+Test/demoBookSales/demoBookSales.html
+Test/demoCalendar/demoCalendar.html
+Test/demoCanvas/breakout.html
+Test/demoDice/demoDice.html
+Test/demoDrag/demoDrag1.html
+Test/demoDrag/tictactoe/ticTacToe.html
+Test/demoDrag/demoTeams.html
+Test/demoGrades/demoGPA.html
+Test/demoGrades/demoGrades.html
+Test/demoLogin/demoLogin.html
+Test/demoLoops/demoLoops.html
+Test/demoMath/demoMath.html
+Test/demoPayroll/demoPayroll.html
+Test/demoPenny/demoPenny.html
+Test/demoProbability/demoProbability.html
+Test/demoRandom/demoRandom.html
+Test/demoRPS/demoRPS //needs to add winning/losing message box
+Test/demoSqrt/demoSqrtRandom.html
+Test/demoStorage/demoStorage.html
+Test/demoHamburger/demoHamburger.html
