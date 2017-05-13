@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	 color: powderblue; 
+	 background-color: brown;
+}
+	  
+.title {
+	color: black;
+	text-shadow: 50px -20px;
+	text-align: center;
+}
+
+.content {
+	color: brown;
+	background-color: powderblue;
+	text-align: center;
+	cursor: pointer;
+	column-count: 2;
+	column-gap: 50px;
+	column-rule:groove; 
+}
+
+.hideLink {
+	cursor: text;
+	text-decoration: none;
+	color:inherit;
+	text-align:inherit;
+	
+}
+
+p {
+    outline: #58B426 dotted thick;
+}
+
+*{
+	text-align:center	
+}
