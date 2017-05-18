@@ -1,9 +1,37 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
-<title>Drag and Drop Lists</title>
+<meta charset="utf-8">
+<title>Untitled Document</title>
 <style>
-body, table { font-size: 30px; text-align: center; margin: auto; }
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+
 td { width: 300px; height: 200px; text-align: left; vertical-align: top; border: solid 2px black; }
 </style>
 <script>
@@ -17,6 +45,8 @@ function drop(ev) {
 </script>
 </head>
 <body>
+<h1 style="margin-top: -8px"><br>demoTeams<br>
+<span style="visibility:hidden;">-</span></h1>
 <p>Drag the people into different teams</p>
 <table border="0"><tr>
     <td id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
