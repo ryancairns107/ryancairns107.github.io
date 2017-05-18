@@ -2,7 +2,37 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Hello World</title>
+<title>demoLightSwitch</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+</style>
+
 <script>
 
 var state = 0;
@@ -51,6 +81,8 @@ if(pic == 1) { document.getElementById('myPic').src = 'stateOn.png' }
 </script>
 </head>
 <body onload="startTime()">
+<h1 style="margin-top: -8px"><br>Blank<br>
+<span style="visibility:hidden;">-</span></h1><br>
 <span id="txt"></span>
 <p id="demo"></p>
 <br>
