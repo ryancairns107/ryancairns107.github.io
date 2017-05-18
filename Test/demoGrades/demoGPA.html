@@ -62,7 +62,7 @@ total = 0; gpa = 0; message = "";
 	
 	message = "Total: " + total + "\nOut of: " + hm*100 + " possible points";
 	var gpa = (1*total)/(1*hm)
-	message += "\nGPA: " + gpa.toFixed(2);
+	message += "\nGrade Average: " + gpa.toFixed(2);
 	document.getElementById("message").value = message; //create message box text
 	var sGPA = Math.ceil(gpa/10)
 
