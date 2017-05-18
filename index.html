@@ -12,60 +12,198 @@ function go(loc){;
 function readVal() {
 	
 	var slideNumb = 1*document.getElementById("numb").value;
+	console.log(document.getElementById('projType').selectedIndex);
 	console.log("readval " + slideNumb);
-	
+
+if(document.getElementById('projType').selectedIndex == "0"){
 	switch(Number(slideNumb)){
-		
 		case 0:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm');
 			break;
 		case 1:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('My favorites/index.html');
 			break;
 		case 2:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Safety/index.html');
 			break;
 		case 3:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Bullying/index.html');
 			break;
 		case 4:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('DreamPC/index.html');
 			break;
 		case 5:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('SchoolMap/index.html');
 			break;
 		case 6:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Gettysburg/Gettysburg.html');
 			break;
 		case 7:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Halloween/index.html');
 			break;
 		case 8:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Displays/index.html');
 			break;
 		case 9:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('Winter/index.html');
 			break;
 		case 10:
-			console.log("switch(slideNumb) " + slideNumb);
+			console.log("switch(slideNumb)0 " + slideNumb);
 			go('englishInvention/indexifridge.html');
 			break;
 		default:
 			console.log('default')
 			break;
-		
 	}
-	
+	document.getElementById("numb").max = 10;
+}
+
+else if(document.getElementById('projType').selectedIndex == "1"){
+	switch(Number(slideNumb)){
+		case 0:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm');
+			break;
+		case 1:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoBank/demoBank.html');
+			break;
+		case 2:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoBinaryClock/demoBinaryClock.html');
+			break;
+		case 3:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoBookSales/demoBookSales.html');
+			break;
+		case 4:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoCalendar/demoCalendar.html');
+			break;
+		case 5:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoCanvas/breakout.html');
+			break;
+		case 6:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoDice/demoDice.html');
+			break;
+		case 7:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoDrag/demoDrag1.html');
+			break;
+		case 8:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoDrag/tictactoe/ticTacToe.html');
+			break;
+		case 9:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoDrag/demoTeams.html');
+			break;
+		case 10:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoGrades/demoGPA.html');
+			break;
+		case 11:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoGrades/demoGrades.html');
+			break;
+		case 12:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoLightSwitch/demoLightSwitch.html');
+			break;
+		case 13:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoLogin/demoLogin.html');
+			break;
+		case 14:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoLoops/demoLoops.html');
+			break;
+		case 15:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('englishInvention/indexifridge.html');
+			break;
+		case 16:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoHamburger/demoHamburger.html');
+			break;
+		case 17:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoMath/demoMath.html');
+			break;
+		case 18:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoPayroll/demoPayroll.html');
+			break;
+		case 19:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoPenny/demoPenny.html');
+			break;
+		case 20:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoProbability/demoProbability.html');
+			break;
+		case 21:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoRandom/demoRandom.html');
+			break;
+		case 21:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoRPS/demoRPS');
+			break;
+		case 22:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoSqrt/demoSqrtRandom.html');
+			break;
+		case 23:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('Test/demoStorage/demoStorage.html');
+			break;
+		case 24:
+			console.log("switch(slideNumb)1 " + slideNumb);
+			go('englishInvention/indexifridge.html');
+			break;
+		default:
+			console.log('default')
+			break;
+		}
+		document.getElementById("numb").max = 24;
+	}
+else if(document.getElementById('projType').selectedIndex == "2"){
+	switch(Number(slideNumb)){
+		case 0:
+			console.log("switch(slideNumb)0 " + slideNumb);
+			go('http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm');
+			break;
+		case 1:
+			console.log("switch(slideNumb)2 " + slideNumb);
+			go('More/aboutMe.html');
+			break;
+		case 2:
+			console.log("switch(slideNumb)2 " + slideNumb);
+			go('More/myResume.pdf');
+			break;
+		case 3:
+			console.log("switch(slideNumb)2 " + slideNumb);
+			go('More/coverLetter.pdf');
+			break;
+		default:
+			console.log('default')
+			break;
+		}
+		document.getElementById("numb").max = 3;
+	}
 }
 
 function rangeIdentify(){
@@ -121,6 +259,11 @@ document.write(mmddyy)
  onMouseMove="rangeIdentify();"> 
  <input type="text" name="slideValue" value="CompSciClarke" style="width: 10%" onKeyUp="document.project.slider.value = document.project.slideValue.value;"
  onChange="document.project.slider.value = document.project.slideValue.value;">
+ <select id="projType" onChange="document.getElementById('numb').value = 0; readVal();">
+	<option>HTML Projects - 10 Webpages</option>
+    <option>Javascript Demos - 24 Projects</option>
+    <option>More Projects - About Me, Resume, Cover Letter</option>
+    </select>
 </form>
 </div> 
 
