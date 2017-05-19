@@ -76,23 +76,23 @@ else if(document.getElementById('projType').selectedIndex == "1"){
 			break;
 		case 1:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoBank/demoBank.html');
+			go('Test/demo8ball/demo8ball.html');
 			break;
 		case 2:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoBinaryClock/demoBinaryClock.html');
+			go('Test/demoBank/demoBank.html');
 			break;
 		case 3:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoBookSales/demoBookSales.html');
+			go('Test/demoBinaryClock/demoBinaryClock.html');
 			break;
 		case 4:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoCalendar/demoCalendar.html');
+			go('Test/demoBookSales/demoBookSales.html');
 			break;
 		case 5:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoCanvas/breakout.html');
+			go('Test/demoCalendar/demoCalendar.html');
 			break;
 		case 6:
 			console.log("switch(slideNumb)1 " + slideNumb);
@@ -104,81 +104,69 @@ else if(document.getElementById('projType').selectedIndex == "1"){
 			break;
 		case 8:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoDrag/tictactoe/ticTacToe.html');
+			go('Test/demoDrag/demoTeams.html');
 			break;
 		case 9:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoDrag/demoTeams.html');
+			go('Test/demoGrades/demoGPA.html');
 			break;
 		case 10:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoGrades/demoGPA.html');
+			go('Test/demoGrades/demoGrades.html');
 			break;
 		case 11:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoGrades/demoGrades.html');
+			go('Test/demoLightSwitch/demoLightSwitch.html');
 			break;
 		case 12:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoLightSwitch/demoLightSwitch.html');
+			go('Test/demoLogin/demoLogin.html');
 			break;
 		case 13:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoLogin/demoLogin.html');
+			go('Test/demoLoops/demoLoops.html');
 			break;
 		case 14:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoLoops/demoLoops.html');
+			go('Test/demoHamburger/demoHamburger.html');
 			break;
 		case 15:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('englishInvention/indexifridge.html');
+			go('Test/demoMath/demoMath.html');
 			break;
 		case 16:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoHamburger/demoHamburger.html');
+			go('Test/demoPayroll/demoPayroll.html');
 			break;
 		case 17:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoMath/demoMath.html');
+			go('Test/demoPenny/demoPenny.html');
 			break;
 		case 18:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoPayroll/demoPayroll.html');
+			go('Test/demoProbability/demoProbability.html');
 			break;
 		case 19:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoPenny/demoPenny.html');
+			go('Test/demoRandom/demoRandom.html');
 			break;
 		case 20:
 			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoProbability/demoProbability.html');
+			go('Test/demoRPS/demoRPS.html');
 			break;
 		case 21:
-			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoRandom/demoRandom.html');
-			break;
-		case 21:
-			console.log("switch(slideNumb)1 " + slideNumb);
-			go('Test/demoRPS/demoRPS');
-			break;
-		case 22:
 			console.log("switch(slideNumb)1 " + slideNumb);
 			go('Test/demoSqrt/demoSqrtRandom.html');
 			break;
-		case 23:
+		case 22:
 			console.log("switch(slideNumb)1 " + slideNumb);
 			go('Test/demoStorage/demoStorage.html');
-			break;
-		case 24:
-			console.log("switch(slideNumb)1 " + slideNumb);
-			go('englishInvention/indexifridge.html');
 			break;
 		default:
 			console.log('default')
 			break;
 		}
-		document.getElementById("numb").max = 24;
+		document.getElementById("numb").max = 22;
 	}
 else if(document.getElementById('projType').selectedIndex == "2"){
 	switch(Number(slideNumb)){
@@ -215,38 +203,11 @@ function rangeIdentify(){
 		
 	}
 }
-	
-function getTime() {
-    var d = new Date();
-    var hh = d.getHours();
-    if(hh < 10) { hh = "0" + hh; }
-    var mn = d.getMinutes();
-    if(mn < 10) { mn = "0" + mn; }
-    var ss = d.getSeconds();
-    if(ss < 10) { ss = "0" + ss; }
-    var hms = hh + ":" + mn + ":" + ss;
-	return hms;
-}
-document.getElementById("time").innerHTML = getTime() + "<br />";
-function writeTime() {
-	document.getElementById("time").innerHTML = getTime() + "<br />";
-}
-setInterval(writeTime, 500);
 </script>
 </head>
 <body>
 <h1>Portfolio</h1>
-<script>
-var d = new Date();
-var mm = d.getMonth() + 1;
-if(mm < 10) { mm = "0" + mm; }
-var dd = d.getDate();
-var yy = d.getFullYear();
-var mmddyy = mm + "/" + dd + "/" + yy;
-document.write(mmddyy)
-</script>
-<span id="time"></span>
-<p id="demo"></p>
+<h2>-Ryan Cairns-</h2>
 <div style="position: fixed; bottom: 2%; left: 50%; width: 85%; margin-left: -42.5%;">
 <br>
 <iframe width="1280px" height="720px" id="iframe" src="http://www.ocvts.org/classroomconnect/classrooms/mclarke1/index.htm" style="position:fixed; top:50%; left:50%; margin-left:-640px; margin-top:-370px;">
@@ -255,18 +216,16 @@ document.write(mmddyy)
  name="slider"
  min="0" max="10" step="1" Value="0"
  style="width:90%" id="numb"
- onChange="document.project.slideValue.value = document.project.slider.value; readVal() "
+ onChange="document.project.slideValue.value = document.project.slider.value; readVal();"
  onMouseMove="rangeIdentify();"> 
- <input type="text" name="slideValue" value="CompSciClarke" style="width: 10%" onKeyUp="document.project.slider.value = document.project.slideValue.value;"
+ <input type="text" name="slideValue" value="CompSciClarke" style="width: 10%" onKeyUp="document.project.slider.value = document.project.slideValue.value; readVal();"
  onChange="document.project.slider.value = document.project.slideValue.value;">
  <select id="projType" onChange="document.getElementById('numb').value = 0; readVal();">
 	<option>HTML Projects - 10 Webpages</option>
-    <option>Javascript Demos - 24 Projects</option>
+    <option>Javascript Demos - 22 Projects</option>
     <option>More Projects - About Me, Resume, Cover Letter</option>
     </select>
 </form>
 </div> 
-
-
 </body>
 </html>
