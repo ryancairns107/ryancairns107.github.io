@@ -47,9 +47,18 @@ table {
 	cursor: pointer;
 	}
 
+.timer {
+}
+
 </style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script>
 
+//addEventListener("keypress", nextVideo);
+
+
+video = 0;
+timeRemain = 5;
 
 function edit(){
 alert('enter edit mode');
@@ -60,7 +69,8 @@ var d = new Date();
 var n = d.getDay();
 var h = d.getHours();
 
-if(h < 14){n--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+
+if(h < 16){n--} //if going to sleep after 00:00, but before 16:00, go back to previous night
 	if(n == -1){n=6} //if reverse from sunday, set to saturday
 
 console.log("day: " + n + ", hour: " + h);
@@ -69,36 +79,36 @@ console.log("day: " + n + ", hour: " + h);
 switch(n){
 
 		case -1: document.getElementById("Saturday").style.backgroundColor = "lime";
-			document.getElementById("Saturday").class = "enabled";
-			document.getElementById("Friday").class = "disabled";
+			document.getElementById("Saturday").className = "enabled";
+			document.getElementById("Friday").className = "disabled";
 			break;
 		case 0: document.getElementById("Sunday").style.backgroundColor = "lime";
-			document.getElementById("Sunday").class = "enabled";
-			 document.getElementById("Saturday").class = "disabled";
+			document.getElementById("Sunday").className = "enabled";
+			 document.getElementById("Saturday").className = "disabled";
 			break;
 		case 1: document.getElementById("Monday").style.backgroundColor = "lime";
-			document.getElementById("Monday").class = "enabled";
-			 document.getElementById("Sunday").class = "disabled";
+			document.getElementById("Monday").className = "enabled";
+			 document.getElementById("Sunday").className = "disabled";
 			break;
 		case 2: document.getElementById("Tuesday").style.backgroundColor = "lime";
-			document.getElementById("Tuesday").class = "enabled";
-			 document.getElementById("Monday").class = "disabled";
+			document.getElementById("Tuesday").className = "enabled";
+			 document.getElementById("Monday").className = "disabled";
 			break;
 		case 3: document.getElementById("Wednesday").style.backgroundColor = "lime";
-			document.getElementById("Wednesday").class = "enabled";
-			 document.getElementById("Tuesday").class = "disabled";
+			document.getElementById("Wednesday").className = "enabled";
+			 document.getElementById("Tuesday").className = "disabled";
 			break;
 		case 4: document.getElementById("Thursday").style.backgroundColor = "lime";
-			document.getElementById("Thursday").class = "enabled";
-			 document.getElementById("Wednesday").class = "disabled";
+			document.getElementById("Thursday").className = "enabled";
+			 document.getElementById("Wednesday").className = "disabled";
 			break;
 		case 5: document.getElementById("Friday").style.backgroundColor = "lime";
-			document.getElementById("Friday").class = "enabled";
-			 document.getElementById("Thursday").class = "disabled";
+			document.getElementById("Friday").className = "enabled";
+			 document.getElementById("Thursday").className = "disabled";
 			break;
 		case 6: document.getElementById("Saturday").style.backgroundColor = "lime";
-			document.getElementById("Saturday").class = "enabled";
-			 document.getElementById("Friday").class = "disabled";
+			document.getElementById("Saturday").className = "enabled";
+			 document.getElementById("Friday").className = "disabled";
 			break;
 		default: alert("switch broke")}
 
@@ -107,63 +117,327 @@ switch(n){
 
 
 
+var u = new Date();
+	var day = u.getDay();
+	var hour = u.getHours();
+	if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+			if(day == -1){day=6} //if reverse from sunday, set to saturday
 
+function nextVideo(){  // MUST EDIT TO BE ABLE TO GO BACK A STEP WITH LEFT ARROW AND BIND RIGHT ARROW + SPACEBAR TO FORWARD
+
+	var u = new Date();
+	var day = u.getDay();
+	var hour = u.getHours();
+		if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+			if(day == -1){day=6} //if reverse from sunday, set to saturday
+
+
+
+video++ //adds 1 to video, lead to next video
+	if(video>=3){video=3} //locks video table to 3rd cell if clicked beyond 3
+
+console.log(document.getElementById(day+""+video).href);
+document.getElementById(day+""+video).style.backgroundColor = "cyan"//changes backgroundColor of selected video cell to "cyan"
+
+if(video>1){document.getElementById(day+""+(video-1)).style.backgroundColor = "lime"}
+
+
+document.getElementById("videoNum").innerHTML = video; //change placeholder text to which video number is being auto loaded
+
+switch(day){ //changes dayOfWeek text to day of week as string
+
+	case 0: document.getElementById("dayOfWeek").innerHTML = "Sunday";
+		break;
+	case 1: document.getElementById("dayOfWeek").innerHTML = "Monday";
+		break;
+	case 2: document.getElementById("dayOfWeek").innerHTML = "Tuesday";
+		break;
+	case 3: document.getElementById("dayOfWeek").innerHTML = "Wednesday";
+		break;
+	case 4: document.getElementById("dayOfWeek").innerHTML = "Thursday";
+		break;
+	case 5: document.getElementById("dayOfWeek").innerHTML = "Friday";
+		break;
+	case 6: document.getElementById("dayOfWeek").innerHTML = "Saturday";
+		break;
+		default: document.getElementById("dayOfWeek").innerHTML = "dayOfWeek";
+}
+
+if(document.getElementById(day+""+video).href.includes("noVid")){
+	//console.log(document.getElementById(day+""+video).href);
+	console.log("includes noVid");
+	alert("There is no next video for " + document.getElementById("dayOfWeek").innerHTML + " night. Reverting to previous video");
+	video--;
+	document.getElementById(day+""+video).style.backgroundColor = "cyan"
+}
+
+console.log(day+""+video);
+
+
+}
+
+function prevVideo(){  // MUST EDIT TO BE ABLE TO GO BACK A STEP WITH LEFT ARROW AND BIND RIGHT ARROW + SPACEBAR TO FORWARD
+
+	var u = new Date();
+	var day = u.getDay();
+	var hour = u.getHours();
+		if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+			if(day == -1){day=6} //if reverse from sunday, set to saturday
+
+
+
+video-- //adds 1 to video, lead to next video
+	if(video<=1){video=1} //locks video table to 3rd cell if clicked beyond 3
+
+console.log(document.getElementById(day+""+video).href);
+document.getElementById(day+""+video).style.backgroundColor = "cyan"//changes backgroundColor of selected video cell to "cyan"
+
+if(video=>1){document.getElementById(day+""+(video+1)).style.backgroundColor = "lime"}
+
+
+document.getElementById("videoNum").innerHTML = video; //change placeholder text to which video number is being auto loaded
+
+switch(day){ //changes dayOfWeek text to day of week as string
+
+	case 0: document.getElementById("dayOfWeek").innerHTML = "Sunday";
+		break;
+	case 1: document.getElementById("dayOfWeek").innerHTML = "Monday";
+		break;
+	case 2: document.getElementById("dayOfWeek").innerHTML = "Tuesday";
+		break;
+	case 3: document.getElementById("dayOfWeek").innerHTML = "Wednesday";
+		break;
+	case 4: document.getElementById("dayOfWeek").innerHTML = "Thursday";
+		break;
+	case 5: document.getElementById("dayOfWeek").innerHTML = "Friday";
+		break;
+	case 6: document.getElementById("dayOfWeek").innerHTML = "Saturday";
+		break;
+		default: document.getElementById("dayOfWeek").innerHTML = "dayOfWeek";
+}
+
+
+console.log(day+""+video);
+
+
+}
+
+
+
+countdownSpeed = 1000;
+function countdown(){
+	
+	console.log(document.getElementById(day+""+video).href);
+	window.open(document.getElementById(day+""+video).href); //open video at dayVideo loc
+	console.log("Good Night! Enjoy your video!")
+
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+    
+    if (e.keyCode == '37' || e.keyCode == '8') {
+        // left arrow or backspace
+        console.log("left or backspace");
+        prevVideo();
+    }
+    else if (e.keyCode == '39' || e.keyCode == '32') {
+       // left arrow
+       console.log("right or space");
+       nextVideo();
+    }
+
+}
+</script>
+<script>
+function _timer(callback)
+{
+    var time = 0;     //  The default time of the timer
+    var mode = 1;     //    Mode: count up or count down
+    var status = 0;    //    Status: timer is running or stoped
+    var timer_id;    //    This is used by setInterval function
+    
+    // this will start the timer ex. start the timer with 1 second interval timer.start(1000) 
+    this.start = function(interval)
+    {
+        interval = (typeof(interval) !== 'undefined') ? interval : 1000;
+ 
+        if(status == 0)
+        {
+            status = 1;
+            timer_id = setInterval(function()
+            {
+                switch(mode)
+                {
+                    default:
+                    if(time)
+                    {
+                        time--;
+                        generateTime();
+                        if(typeof(callback) === 'function') callback(time); 
+                    }
+                    break;
+                    
+                    case 1:
+                    if(time < 86400)
+                    {
+                        time++;
+                        generateTime();
+                        if(typeof(callback) === 'function') callback(time);
+                    }
+                    break;
+                }
+            }, interval);
+        }
+    }
+    
+    //  Same as the name, this will stop or pause the timer ex. timer.stop()
+    this.stop =  function()
+    {
+        if(status == 1)
+        {
+            status = 0;
+            clearInterval(timer_id);
+        }
+    }
+    
+    // Reset the timer to zero or reset it to your own custom time ex. reset to zero second timer.reset(0)
+    this.reset =  function(sec)
+    {
+        sec = (typeof(sec) !== 'undefined') ? sec : 0;
+        time = sec;
+        generateTime(time);
+    }
+    
+    // Change the mode of the timer, count-up (1) or countdown (0)
+    this.mode = function(tmode)
+    {
+        mode = tmode;
+    }
+    
+    // This methode return the current value of the timer
+    this.getTime = function()
+    {
+        return time;
+    }
+    
+    // This methode return the current mode of the timer count-up (1) or countdown (0)
+    this.getMode = function()
+    {
+        return mode;
+    }
+    
+    // This methode return the status of the timer running (1) or stoped (1)
+    this.getStatus
+    {
+        return status;
+    }
+    
+    // This methode will render the time variable to hour:minute:second format
+    function generateTime()
+    {
+        var second = time % 60;
+        var minute = Math.floor(time / 60) % 60;
+        var hour = Math.floor(time / 3600) % 60;
+        
+        second = (second < 10) ? second : second;
+        minute = (minute < 10) ? '0'+minute : minute;
+        hour = (hour < 10) ? '0'+hour : hour;
+        
+        $('span.timer span.second').html(second);
+        $('span.timer span.minute').html(minute);
+        $('span.timer span.hour').html(hour);
+    }
+}
+ 
+// example use
+var timer;
+ 
+$(document).ready(function(e) 
+{
+    timer = new _timer
+    (
+        function(time)
+        {
+            if(time == 0)
+            {
+                timer.stop();
+                console.log('launch video'); //--------------------------------------change to run a function that will launch the video at cellLoc\
+                countdown();
+                timer.reset(5);
+            }
+        }
+    );
+    timer.reset(5);
+    timer.mode(0);
+});
 </script>
 </head>
 
-<body onload="dateTime();">
+<body onload="dateTime();nextVideo();timer.start(1000)">
 <h1 style="margin-top: -8px"><br>video<br>
 <span style="visibility:hidden;">-</span></h1><br>
-<table width="60%" height="85%" border="0">
+<table width="60%" height="85%" border="1">
   <tbody>
-    <tr id="Sunday">
+    <tr id="Sunday" class="disabled">
       <td>Sunday</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU">rtPodcast2 overflow</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU">off topic</a></td>
-      <td></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU" id="01">rtPodcast2 overflow</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU" id="02">off topic</a></td>
+      <td><a target="_blank" href="noVid" id="03"></td>
     </tr>
-    <tr id="Monday">
+    <tr id="Monday" class="disabled">
       <td>Monday</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU">off topic</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU">off topic overflow</a></td>
-      <td></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU" id="11">off topic</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU" id="12">off topic overflow</a></td>
+      <td><a target="_blank" href="noVid" id="13"></td>
     </tr>
-    <tr id="Tuesday">
+    <tr id="Tuesday" class="disabled">
       <td>Tuesday</td>
-      <td><a target="_blank" href="https://www.youtube.com/channel/UCLtREJY21xRfCuEKvdki1Kw/videos">h3h3</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU">off topic overflow</a></td>
-      <td></td>
+      <td><a target="_blank" href="https://www.youtube.com/channel/UCLtREJY21xRfCuEKvdki1Kw/videos" id="21">h3h3</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Off+Topic&sp=EgIQAVAU" id="22">off topic overflow</a></td>
+      <td><a target="_blank" href="noVid" id="23"></a></td>
     </tr>
-    <tr id="Wednesday">
+    <tr id="Wednesday" class="disabled">
       <td>Wednesday</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU">rtPodcast1</a></td>
-      <td></td>
-      <td></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU" id="31">rtPodcast1</a></td>
+      <td><a target="_blank" href="noVid" id="32"></td>
+      <td><a target="_blank" href="noVid" id="33"></td>
     </tr>
-    <tr id="Thursday">
+    <tr id="Thursday" class="disabled">
       <td>Thursday</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU">dude soup</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU">rtPodcast1 overflow</a></td>
-      <td></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU" id="41">dude soup</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU" id="42">rtPodcast1 overflow</a></td>
+      <td><a target="_blank" href="noVid" id="43"></td>
     </tr>
-    <tr id="Friday">
+    <tr id="Friday" class="disabled">
       <td>Friday</td>
-      <td>on the spot</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU">dude soup</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU">dude soup overflow</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=On+The+Spot&sp=EgIQAVAU" id="51">on the spot</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU" id="52">dude soup</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=Dude+Soup+Podcast&sp=EgIQAVAU" id="53">dude soup overflow</a></td>
     </tr>
-    <tr id="Saturday">
+    <tr id="Saturday" class="disabled">
       <td>Saturday</td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU">rtPodcast2</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=GLITCH+PLEASE&sp=EgIQAVAU">glitch please</a></td>
-      <td><a target="_blank" href="https://www.youtube.com/results?q=On+The+Spot">on the spot overflow</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=RT+Podcast&sp=EgIQAVAU" id="61">rtPodcast2</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=GLITCH+PLEASE&sp=EgIQAVAU" id="62">glitch please</a></td>
+      <td><a target="_blank" href="https://www.youtube.com/results?q=On+The+Spot&sp=EgIQAVAU" id="63">on the spot overflow</a></td>
     </tr>
     <tr>
-      <td colspan="2"><input type="button" value="Edit Mode" onclick="edit();"></td>
-      <td colspan="2"><input type="button" value="Update" onclick="dateTime();"></td>
+      <!--<td colspan="2">Video #<span id="videoNum">placeholder</span> for <span id="dayOfWeek">today</span> will auto-load in <span id="autoTime">5</span> second(s)</td>-->
+      <!--<td colspan="4"><input type="button" value="Next Video" onclick="nextVideo();"></td>-->
     </tr>
-  </tbody>
+    <tr>
+   		<td colspan="1">Video #<span id="videoNum">placeholder</span> for <span id="dayOfWeek">today</span> will auto-load in <span class="timer">
+           <span class="second">00</span>
+        </span> second(s)</td>
+      <td colspan="3"><div class="control"> 
+            <button onClick="timer.stop()">Pause</button> 
+            <button onClick="timer.start(1000)">Resume</button>
+            <button onClick="timer.reset(5);timer.start(1000)">Reset</button> 
+        </div></td>
+    </tr>
 </table>
-
 </body>
 </html>
