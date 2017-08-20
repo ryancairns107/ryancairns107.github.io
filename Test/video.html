@@ -239,16 +239,35 @@ function checkKey(e) {
 
     e = e || window.event;
     
+
     if (e.keyCode == '37' || e.keyCode == '8') {
         // left arrow or backspace
-        console.log("left or backspace");
+        //console.log("left or backspace");
+       // switch(e.keyCode)
         prevVideo();
     }
     else if (e.keyCode == '39' || e.keyCode == '32') {
        // left arrow
-       console.log("right or space");
+       //console.log("right or space");
+       //switch(e.keyCode)
        nextVideo();
     }
+
+    switch(e.keyCode){
+
+ 	case 37:  console.log("left arrow");
+   	break;
+
+   	case 8: console.log("backspace");
+   	break;
+
+   	case 39: console.log("right arrow")
+   	break;
+
+   	case 32: console.log("spacebar")
+   	break;
+		default: console.log(e.keyCode);
+   }
 
 }
 </script>
@@ -380,7 +399,7 @@ $(document).ready(function(e)
 <body onload="dateTime();nextVideo();timer.start(1000)">
 <h1 style="margin-top: -8px"><br>video<br>
 <span style="visibility:hidden;">-</span></h1><br>
-<table width="60%" height="85%" border="1">
+<table width="60%" height="85%" border="0">
   <tbody>
     <tr id="Sunday" class="disabled">
       <td>Sunday</td>
