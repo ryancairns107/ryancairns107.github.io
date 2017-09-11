@@ -69,7 +69,6 @@ var d = new Date();
 var n = d.getDay();
 var h = d.getHours();
 
-
 if(h < 16){n--} //if going to sleep after 00:00, but before 16:00, go back to previous night
 	if(n == -1){n=6} //if reverse from sunday, set to saturday
 
@@ -79,40 +78,99 @@ console.log("day: " + n + ", hour: " + h);
 switch(n){
 
 		case -1: document.getElementById("Saturday").style.backgroundColor = "lime";
+			document.getElementById("Friday").style.backgroundColor = "transparent";
+			document.getElementById(5+""+1).style.backgroundColor = "transparent";
+			document.getElementById(5+""+2).style.backgroundColor = "transparent";
+			document.getElementById(5+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Friday").style.backgroundColor = "transparent";
 			document.getElementById("Saturday").className = "enabled";
 			document.getElementById("Friday").className = "disabled";
 			break;
 		case 0: document.getElementById("Sunday").style.backgroundColor = "lime";
+			document.getElementById("Saturday").style.backgroundColor = "transparent";
+			document.getElementById(6+""+1).style.backgroundColor = "transparent";
+			document.getElementById(6+""+2).style.backgroundColor = "transparent";
+			document.getElementById(6+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Saturday").style.backgroundColor = "transparent";
 			document.getElementById("Sunday").className = "enabled";
 			 document.getElementById("Saturday").className = "disabled";
 			break;
 		case 1: document.getElementById("Monday").style.backgroundColor = "lime";
+			document.getElementById("Sunday").style.backgroundColor = "transparent";
+			document.getElementById(0+""+1).style.backgroundColor = "transparent";
+			document.getElementById(0+""+2).style.backgroundColor = "transparent";
+			document.getElementById(0+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Sunday").style.backgroundColor = "transparent";
 			document.getElementById("Monday").className = "enabled";
 			 document.getElementById("Sunday").className = "disabled";
 			break;
 		case 2: document.getElementById("Tuesday").style.backgroundColor = "lime";
+			document.getElementById("Monday").style.backgroundColor = "transparent";
+			document.getElementById(1+""+1).style.backgroundColor = "transparent";
+			document.getElementById(1+""+2).style.backgroundColor = "transparent";
+			document.getElementById(1+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Monday").style.backgroundColor = "transparent";
 			document.getElementById("Tuesday").className = "enabled";
 			 document.getElementById("Monday").className = "disabled";
 			break;
 		case 3: document.getElementById("Wednesday").style.backgroundColor = "lime";
+			document.getElementById("Tuesday").style.backgroundColor = "transparent";
+			document.getElementById(2+""+1).style.backgroundColor = "transparent";
+			document.getElementById(2+""+2).style.backgroundColor = "transparent";
+			document.getElementById(2+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Tuesday").style.backgroundColor = "transparent";
 			document.getElementById("Wednesday").className = "enabled";
 			 document.getElementById("Tuesday").className = "disabled";
 			break;
 		case 4: document.getElementById("Thursday").style.backgroundColor = "lime";
+			document.getElementById("Wednesday").style.backgroundColor = "transparent";
+			document.getElementById(3+""+1).style.backgroundColor = "transparent";
+			document.getElementById(3+""+2).style.backgroundColor = "transparent";
+			document.getElementById(3+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Wednesday").style.backgroundColor = "transparent";
 			document.getElementById("Thursday").className = "enabled";
 			 document.getElementById("Wednesday").className = "disabled";
 			break;
 		case 5: document.getElementById("Friday").style.backgroundColor = "lime";
+			document.getElementById("Thursday").style.backgroundColor = "transparent";
+			document.getElementById(4+""+1).style.backgroundColor = "transparent";
+			document.getElementById(4+""+2).style.backgroundColor = "transparent";
+			document.getElementById(4+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Thursday").style.backgroundColor = "transparent";
 			document.getElementById("Friday").className = "enabled";
 			 document.getElementById("Thursday").className = "disabled";
 			break;
 		case 6: document.getElementById("Saturday").style.backgroundColor = "lime";
+			document.getElementById("Friday").style.backgroundColor = "transparent";
+			document.getElementById(5+""+1).style.backgroundColor = "transparent";
+			document.getElementById(5+""+2).style.backgroundColor = "transparent";
+			document.getElementById(5+""+3).style.backgroundColor = "transparent";
+			document.getElementById("Friday").style.backgroundColor = "transparent";
 			document.getElementById("Saturday").className = "enabled";
 			 document.getElementById("Friday").className = "disabled";
 			break;
 		default: alert("switch broke")}
 
-		setTimeout(dateTime, 10000);
+		switch(day){ //changes dayOfWeek text to day of week as string
+
+	case 0: document.getElementById("dayOfWeek").innerHTML = "Sunday";
+		break;
+	case 1: document.getElementById("dayOfWeek").innerHTML = "Monday";
+		break;
+	case 2: document.getElementById("dayOfWeek").innerHTML = "Tuesday";
+		break;
+	case 3: document.getElementById("dayOfWeek").innerHTML = "Wednesday";
+		break;
+	case 4: document.getElementById("dayOfWeek").innerHTML = "Thursday";
+		break;
+	case 5: document.getElementById("dayOfWeek").innerHTML = "Friday";
+		break;
+	case 6: document.getElementById("dayOfWeek").innerHTML = "Saturday";
+		break;
+		default: document.getElementById("dayOfWeek").innerHTML = "dayOfWeek";
+}
+		setTimeout(dateTime, 5000);
+		document.getElementById(n+""+1).style.backgroundColor = "cyan";
 }
 
 
@@ -120,7 +178,7 @@ switch(n){
 var u = new Date();
 	var day = u.getDay();
 	var hour = u.getHours();
-	if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+	if(hour < 16){day--} //if going to sleep after 00:00, but before 12:00, go back to previous night
 			if(day == -1){day=6} //if reverse from sunday, set to saturday
 
 function nextVideo(){  // MUST EDIT TO BE ABLE TO GO BACK A STEP WITH LEFT ARROW AND BIND RIGHT ARROW + SPACEBAR TO FORWARD
@@ -128,7 +186,7 @@ function nextVideo(){  // MUST EDIT TO BE ABLE TO GO BACK A STEP WITH LEFT ARROW
 	var u = new Date();
 	var day = u.getDay();
 	var hour = u.getHours();
-		if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+		if(hour < 16){day--} //if going to sleep after 00:00, but before 12:00, go back to previous night
 			if(day == -1){day=6} //if reverse from sunday, set to saturday
 
 
@@ -181,7 +239,7 @@ function prevVideo(){  // MUST EDIT TO BE ABLE TO GO BACK A STEP WITH LEFT ARROW
 	var u = new Date();
 	var day = u.getDay();
 	var hour = u.getHours();
-		if(hour < 16){day--} //if going to sleep after 00:00, but before 16:00, go back to previous night
+		if(hour < 16){day--} //if going to sleep after 00:00, but before 12:00, go back to previous night
 			if(day == -1){day=6} //if reverse from sunday, set to saturday
 
 
