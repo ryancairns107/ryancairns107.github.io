@@ -44,10 +44,14 @@ table {
 function start(){
 
 points = 0
+turnsRemain = 10
 console.log("Points: " + points);
 document.getElementById('txtScore').innerHTML = "0"
 document.getElementById('txtTurns').innerHTML = "10"
 document.getElementById('btnNewGame').disabled = true;
+document.getElementById('btnCooperate').disabled = false;
+document.getElementById('btnRandom').disabled = false;
+document.getElementById('btnDefect').disabled = false;
 
 document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
 document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
