@@ -38,11 +38,17 @@ table {
  }
 </style>
 <script>
-	function dilemma(PrisonerA){
+
+function dilemma(PrisonerA){
+	var PrisonerB = "defaultB"
+	
+
 if (PrisonerA === undefined) {
           PrisonerA = "error";
     }
-//console.log("PrisonerA as int: " + PrisonerA);
+
+
+console.log("PrisonerA as int: " + PrisonerA);
 switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 	case 0: PrisonerA = "AC";
 	break;
@@ -50,10 +56,30 @@ switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 	break;
 default: console.log("error in switch(PrisonerA)")
 }
-//console.log("PrisonerA as string: " + PrisonerA)
 
-PrisonerB = Math.round(Math.random())
+
+console.log("PrisonerA as string: " + PrisonerA)
+
+var strategyNum = parseInt(document.getElementById("numStrategy").value);
+console.log("strategyNum value from numberBox: " + strategyNum);
+//strategyNum = 0;
+alert(strategyNum); // error below????
+
+switch(strategyNum){
+	case 0: alert(strategyNum); PrisonerB = Math.round(Math.random());
+	break;
+	case 1: alert(strategyNum); PrisonerB = 0;
+	break;
+	case 2: alert(strategyNum); PrisonerB = 1;
+	break;
+default: console.log("error in switch(strategyNum)")
+}
+
+
+//PrisonerB = Math.round(Math.random()) //gives computer random strategy
 //console.log("Prisoner B as int:" + PrisonerB)
+
+
 switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	case 0: PrisonerB = "BC";
 	break;
@@ -61,10 +87,10 @@ switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	break;
 default: console.log("error in switch(PrisonerB)")
 }
-//console.log("PrisonerB as string: " + PrisonerB)
+console.log("PrisonerB as string: " + PrisonerB)
 
 var sentence = PrisonerA + PrisonerB //combine string to both to decide 1/4 of all options
-//console.log("Sentence as string:" + sentence)
+console.log("Sentence as string:" + sentence)
 
 document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
 document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
@@ -94,6 +120,7 @@ document.getElementById(sentence).style.backgroundColor = "lime"; //set color of
     </tr>
   </tbody>
 </table>
+<input type="number" id="numStrategy" min="0" max="2" value= "0"> Strategy: <b><span id="textStrategy"></span></b></input>
 <p>Explanation:<br>
 After commiting a crime, you and your accomplice are called in for police questioning. You are put in separate rooms, with no way of communicating with eachother. The officer tells you that you are allowed to stay silent and admit you did it (cooperate) or blame your accomplice for the crime (defect). <br>There is a catch:</p>
 <ul><li>If both you and your friend both defect the blame, you will both be imprisoned for <b>2 years</b>.</li>
