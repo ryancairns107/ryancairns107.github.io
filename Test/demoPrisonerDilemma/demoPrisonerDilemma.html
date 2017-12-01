@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prisoner Dilemma</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+
+ ul {
+		margin-left: 25%;
+    }
+ li {
+ 		text-align: left;
+
+ }
+</style>
+<script>
+	function dilemma(PrisonerA){
+if (PrisonerA === undefined) {
+          PrisonerA = "error";
+    }
+//console.log("PrisonerA as int: " + PrisonerA);
+switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
+	case 0: PrisonerA = "AC";
+	break;
+	case 1: PrisonerA = "AD";
+	break;
+default: console.log("error in switch(PrisonerA)")
+}
+//console.log("PrisonerA as string: " + PrisonerA)
+
+PrisonerB = Math.round(Math.random())
+//console.log("Prisoner B as int:" + PrisonerB)
+switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
+	case 0: PrisonerB = "BC";
+	break;
+	case 1: PrisonerB = "BD";
+	break;
+default: console.log("error in switch(PrisonerB)")
+}
+//console.log("PrisonerB as string: " + PrisonerB)
+
+var sentence = PrisonerA + PrisonerB //combine string to both to decide 1/4 of all options
+//console.log("Sentence as string:" + sentence)
+
+document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
+document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
+document.getElementById("ADBC").style.backgroundColor = "#D5D5D5"
+document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
+
+document.getElementById(sentence).style.backgroundColor = "lime"; //set color of choice to lime green
+//document.getElementById("lblSentence").innerHTML = document.getElementById(sentence).innerHTML //put text of sentence into sentence at bottom
+}
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px"><br>Prisoner Dilemma<br>
+<span style="visibility:hidden;">-</span></h1>
+<br>
+<table width="65%" border="0" link="#DDBB87" align="center" style="text-align: center">
+  <tbody>
+    <tr>
+     <td width="20%"><b>Random (non-iterative)</b></td>
+     <td width="20%">Tit For Tat</td>
+     <td width="20%">MinMax</td>
+     <td width="20%">Always A</td>
+     <td width="20%">Always B</td>
+     <td width="20%"></td>
+     <td width="20%"></td>
+    </tr>
+  </tbody>
+</table>
+<p>Explanation:<br>
+After commiting a crime, you and your accomplice are called in for police questioning. You are put in separate rooms, with no way of communicating with eachother. The officer tells you that you are allowed to stay silent and admit you did it (cooperate) or blame your accomplice for the crime (defect). <br>There is a catch:</p>
+<ul><li>If both you and your friend both defect the blame, you will both be imprisoned for <b>2 years</b>.</li>
+	<li>If you defect blame and your accomplice cooperates, <b>you don't go to prison</b>, but your accomplice will go to prison for <b>3 years</b>, (and vice versa).</li>
+	<li>If both of you cooperate and admit the crime, you will both be sent to prison for <b>1 year</b>.</li></ul>
+<p>This is a game-theory thought-expirement, called The Prisoner Dilemma. In a non-iterative expirement, your accomplice will choose a random option, with no basis on the previous rounds. As the expirement expands, iterative rounds can give a score based on the strategy used that chooses because of the outcome of previous rounds. You are Prisoner A! Choose Wisely!</p>
+<br>
+<table width="25%" border="1" align="center" style="text-align: center;color:#49274A">
+	<tr>
+    	<td width="10%"><b>Prisoner B >>><hr>Prisoner A</b></td>
+		<td width="45%"><b>Prisoner B: Cooperate</b></td>
+		<td width="45%"><b>Prisoner B: Defect</b></td>
+	</tr>
+	<tr>
+		<td width="10%"><b>Prisoner A: Cooperate</b></td>
+		<td width="45%"><p id="ACBC">Each serves 1 year</p></td>
+		<td width="45%"><p id="ACBD">Prisoner A: 3 years<br>
+Prisoner B: goes free</p></td>
+	</tr>
+	<tr>
+		<td width="10%"><b>Prisoner A: Defect</b></td>
+		<td width="45%"><p id="ADBC"="You: Goes Free, B: 3 years">Prisoner A: goes free<br>
+Prisoner B: 3 years</p></td>
+		<td width="45%"><p id="ADBD"="Each 2 years">Each serves 2 years</p></td>
+	</tr>
+</table>
+<!--<p>Sentence: <br><b><span id="lblSentence"></span></b></p>-->
+<br>
+<button onclick="dilemma(0)">Cooperate</button>
+<button onclick="dilemma(1)">Defect</button>
+</body>
+</html>
