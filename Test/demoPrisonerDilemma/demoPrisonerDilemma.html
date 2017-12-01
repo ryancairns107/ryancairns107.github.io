@@ -44,10 +44,15 @@ table {
 function start(){
 
 points = 0
-
+console.log("Points: " + points);
 document.getElementById('txtScore').innerHTML = "0"
 document.getElementById('txtTurns').innerHTML = "10"
 document.getElementById('btnNewGame').disabled = true;
+
+document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
+document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
+document.getElementById("ADBC").style.backgroundColor = "#D5D5D5"
+document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
 
 switch(parseInt(document.getElementById('numStrategy').value)){
 
@@ -128,7 +133,7 @@ document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
 
 points += parseInt(document.getElementById(sentence).title);
 document.getElementById('txtScore').innerHTML = points;
-console.log(points);
+console.log("Points: " + points)
 document.getElementById(sentence).style.backgroundColor = "lime"; //set color of choice to lime green
 //document.getElementById("lblSentence").innerHTML = document.getElementById(sentence).innerHTML //put text of sentence into sentence at bottom
 }
@@ -158,7 +163,7 @@ start();
 <br>
  Strategy #<input type="number" id="numStrategy" min="0" max="2" value= "0" onClick="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
 <p> Turns Remain: <b><span id="txtTurns"></span></b></p>
-<p> Your Points: <b><span id="txtScore">0</span></b></p>
+<p> Your Points (Lower is Better): <b><span id="txtScore">0</span></b></p>
 <p>Explanation:<br>
 After commiting a crime, you and your accomplice are called in for police questioning. You are put in separate rooms, with no way of communicating with eachother. The officer tells you that you are allowed to stay silent and admit you did it (cooperate) or blame your accomplice for the crime (defect). <br>There is a catch:</p>
 <ul><li>If both you and your friend both defect the blame, you will both be imprisoned for <b>2 years</b>.</li>
