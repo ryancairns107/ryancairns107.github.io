@@ -36,7 +36,7 @@ table {
  }
 </style>
 <script>
-	var ADefected = null
+	var ADefected = 0
 	var points = 0;
 	var turnsRemain = 10;
 	var lastA = null
@@ -46,6 +46,7 @@ console.log("lastA: " + lastA)
 console.log("ADefected: " + ADefected)
 points = 0
 turnsRemain = 10
+if(turnsRemain == 10){ADefected = 0}
 console.log("Points: " + points);
 document.getElementById('txtScore').innerHTML = "0"
 document.getElementById('txtTurns').innerHTML = "10"
@@ -117,9 +118,9 @@ switch(strategyNum){
 default: console.log("error in switch(strategyNum)")
 }
 lastA = PrisonerA
-if(lastA == "AD"){ADefected = 1; console.log("A has defected 1 round")}
+if(lastA == "AD"){ADefected = 1; console.log("PrisonerA has defected at least 1 round, Grudger only play Defect now")}
 //PrisonerB = Math.round(Math.random()) //gives computer random strategy
-console.log("Prisoner B as int:" + PrisonerB)
+console.log("Prisoner B as int: " + PrisonerB)
 switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	case 0: PrisonerB = "BC";
 	break;
@@ -144,7 +145,7 @@ function newGame(){
 turnsRemain = 10
 points = 0
 lastA = null
-ADefected = null
+ADefected = 0
 console.log("ADefected: " + ADefected)
 console.log("lastA: " + lastA)
 document.getElementById('btnCooperate').disabled = false; //re-allow button
@@ -164,7 +165,7 @@ start();
 <h1 style="margin-top: -8px"><br>Prisoner Dilemma<br>
 <span style="visibility:hidden;">-</span></h1>
 <br>
- Strategy #<input type="number" id="numStrategy" min="0" max="5" value= "0" onClick="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
+ Strategy #<input type="number" id="numStrategy" min="0" max="5" value= "0" onClick="start();" onChange="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
 <p> Turns Remain: <b><span id="txtTurns"></span></b></p>
 <p> Your Points (Lower is Better): <b><span id="txtScore">0</span></b></p>
 <p>Explanation:<br>
