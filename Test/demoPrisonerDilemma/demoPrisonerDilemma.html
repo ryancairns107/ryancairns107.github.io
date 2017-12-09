@@ -40,8 +40,13 @@ table {
 	var points = 0;
 	var turnsRemain = 10;
 	var lastA = null
+	var twoLastA = null
+	var handshake = null
+
 function start(){
 lastA = null
+twoLastA = null
+handshake = null
 console.log("lastA: " + lastA)
 console.log("ADefected: " + ADefected)
 points = 0
@@ -58,6 +63,7 @@ document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
 document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
 document.getElementById("ADBC").style.backgroundColor = "#D5D5D5"
 document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
+
 switch(parseInt(document.getElementById('numStrategy').value)){
 	case 0: document.getElementById("textStrategy").innerHTML = "Random (non-iterative)"
 break;
@@ -71,8 +77,13 @@ break;
 break;
 	case 5: document.getElementById("textStrategy").innerHTML = "Grudger"
 break;
+case 6: document.getElementById("textStrategy").innerHTML = "Tit-For-Two-Tats"
+break;
+case 7: document.getElementById("textStrategy").innerHTML = "Handshake"
+break;
 	default: console.log("Start Switch Catostrophic Failure: " + document.getElementById('numStrategy').value)
 }
+
 }
 function dilemma(PrisonerA){
 	turnsRemain--
@@ -83,10 +94,15 @@ function dilemma(PrisonerA){
 						document.getElementById('btnNewGame').disabled = false;}
 	var PrisonerB = "defaultB"
 	
+
 if (PrisonerA === undefined) {
           PrisonerA = "error";
     }
+
+
 console.log("PrisonerA as int: " + PrisonerA);
+
+
 switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 	case 0: PrisonerA = "AC";
 	break;
@@ -95,16 +111,18 @@ switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 default: console.log("error in switch(PrisonerA)")
 }
 
+
 console.log("PrisonerA as string: " + PrisonerA)
 var strategyNum = parseInt(document.getElementById("numStrategy").value);
 console.log("strategyNum value from numberBox: " + strategyNum);
 
+
 switch(strategyNum){
-	case 0: PrisonerB = Math.round(Math.random());// document.getElementById('textStrategy').innerHTML = "Random (non-iterative)";
+	case 0: PrisonerB = Math.round(Math.random());
 	break;
-	case 1: PrisonerB = 0;// document.getElementById('textStrategy').innerHTML = "Always Cooperate";
+	case 1: PrisonerB = 0;
 	break;
-	case 2: PrisonerB = 1; // document.getElementById('textStrategy').innerHTML = "Always Defect";
+	case 2: PrisonerB = 1;
 	break;
 	case 3: if (lastA == "AD"){PrisonerB = 1; console.log("Tit For Tat AD")} //start cooperate, repeat A offset 1
 			else{PrisonerB = 0; console.log("Tit for Tat AC/else")}
@@ -115,12 +133,28 @@ switch(strategyNum){
 	case 5: if(ADefected == 1){PrisonerB = 1} //cooperate always until A defects once
 			else{PrisonerB = 0}
 	break;
+	case 6: if(twoLastA == "AD" && lastA == "AD" ){PrisonerB = 1}
+			else{PrisonerB = 0} //tit-for-two-tats
+	break;
+	case 7: console.log(turnsRemain + " = turnsRemain")
+			if(turnsRemain == 7){if(twoLastA == "AD" && lastA == "AC"){handshake = 1; console.log("player has agreed to handshake, ai plays cooperate")} //janky af
+						else{handshake = 0; console.log("player has not agreed to handshake, ai plays defect") }}
+			if(turnsRemain == 9){PrisonerB = 1} //handshake: turn 1, defect. turn 2, cooperate. if player plays same moves:, always cooperate. else: defect
+			else if(turnsRemain == 8){PrisonerB = 0}
+			else if(handshake == 1){PrisonerB = 0}
+			else if(handshake == 0){PrisonerB = 1}
+			else{console.log("error in handshake")}
+	break;
 default: console.log("error in switch(strategyNum)")
 }
+
+twoLastA = lastA
 lastA = PrisonerA
+
 if(lastA == "AD"){ADefected = 1; console.log("PrisonerA has defected at least 1 round, Grudger only play Defect now")}
-//PrisonerB = Math.round(Math.random()) //gives computer random strategy
 console.log("Prisoner B as int: " + PrisonerB)
+
+
 switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	case 0: PrisonerB = "BC";
 	break;
@@ -128,6 +162,8 @@ switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	break;
 default: console.log("error in switch(PrisonerB)")
 }
+
+
 console.log("PrisonerB as string: " + PrisonerB)
 var sentence = PrisonerA + PrisonerB //combine string to both to decide 1/4 of all options
 console.log("Sentence as string:" + sentence)
@@ -139,13 +175,15 @@ points += parseInt(document.getElementById(sentence).title);
 document.getElementById('txtScore').innerHTML = points;
 console.log("Points: " + points)
 document.getElementById(sentence).style.backgroundColor = "lime"; //set color of choice to lime green
-//document.getElementById("lblSentence").innerHTML = document.getElementById(sentence).innerHTML //put text of sentence into sentence at bottom
 }
+
 function newGame(){
 turnsRemain = 10
 points = 0
 lastA = null
+twoLastA = null
 ADefected = 0
+handshake = null
 console.log("ADefected: " + ADefected)
 console.log("lastA: " + lastA)
 document.getElementById('btnCooperate').disabled = false; //re-allow button
@@ -165,7 +203,7 @@ start();
 <h1 style="margin-top: -8px"><br>Prisoner Dilemma<br>
 <span style="visibility:hidden;">-</span></h1>
 <br>
- Strategy #<input type="number" id="numStrategy" min="0" max="5" value= "0" onClick="start();" onChange="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
+ Strategy #<input type="number" id="numStrategy" min="0" max="7" value= "0" onClick="start();" onChange="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
 <p> Turns Remain: <b><span id="txtTurns"></span></b></p>
 <p> Your Points (Lower is Better): <b><span id="txtScore">0</span></b></p>
 <p>Explanation:<br>
