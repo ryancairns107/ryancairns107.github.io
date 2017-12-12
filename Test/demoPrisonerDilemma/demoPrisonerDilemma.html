@@ -36,17 +36,21 @@ table {
  }
 </style>
 <script>
-	var ADefected = 0
+	var ADefected = 0;
 	var points = 0;
 	var turnsRemain = 10;
-	var lastA = null
-	var twoLastA = null
-	var handshake = null
-
+	var lastA = null;
+	var twoLastA = null;
+	var handshake = null;
+	var strategyNum;
 function start(){
-lastA = null
-twoLastA = null
-handshake = null
+lastA = null;
+twoLastA = null;
+handshake = null;
+
+if(document.getElementById("guesserStrat").checked){document.getElementById("numStrategy").disabled = true;}
+else{document.getElementById("numStrategy").disabled = false;}
+
 console.log("lastA: " + lastA)
 console.log("ADefected: " + ADefected)
 points = 0
@@ -63,7 +67,6 @@ document.getElementById("ACBC").style.backgroundColor = "#D5D5D5" //reset colors
 document.getElementById("ACBD").style.backgroundColor = "#D5D5D5"
 document.getElementById("ADBC").style.backgroundColor = "#D5D5D5"
 document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
-
 switch(parseInt(document.getElementById('numStrategy').value)){
 	case 0: document.getElementById("textStrategy").innerHTML = "Random (non-iterative)"
 break;
@@ -77,13 +80,12 @@ break;
 break;
 	case 5: document.getElementById("textStrategy").innerHTML = "Grudger"
 break;
-case 6: document.getElementById("textStrategy").innerHTML = "Tit-For-Two-Tats"
+	case 6: document.getElementById("textStrategy").innerHTML = "Tit-For-Two-Tats"
 break;
-case 7: document.getElementById("textStrategy").innerHTML = "Handshake"
+	case 7: document.getElementById("textStrategy").innerHTML = "Handshake"
 break;
 	default: console.log("Start Switch Catostrophic Failure: " + document.getElementById('numStrategy').value)
 }
-
 }
 function dilemma(PrisonerA){
 	turnsRemain--
@@ -92,17 +94,12 @@ function dilemma(PrisonerA){
 						document.getElementById('btnRandom').disabled = true;
 						document.getElementById('btnDefect').disabled = true;
 						document.getElementById('btnNewGame').disabled = false;}
-	var PrisonerB = "defaultB"
+	var PrisonerB = "defaultB";
 	
-
 if (PrisonerA === undefined) {
           PrisonerA = "error";
     }
-
-
 console.log("PrisonerA as int: " + PrisonerA);
-
-
 switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 	case 0: PrisonerA = "AC";
 	break;
@@ -110,33 +107,38 @@ switch(PrisonerA){ //turn players choice into String of ACompromise or ADefect
 	break;
 default: console.log("error in switch(PrisonerA)")
 }
-
-
 console.log("PrisonerA as string: " + PrisonerA)
-var strategyNum = parseInt(document.getElementById("numStrategy").value);
-console.log("strategyNum value from numberBox: " + strategyNum);
 
+
+if(turnsRemain == 9){
+	if(document.getElementById("guesserStrat").checked){strategyNum = Math.round(Math.random() * 7); console.log("Random Strategy: " + strategyNum)}
+	else{strategyNum = parseInt(document.getElementById("numStrategy").value); console.log("strategyNum value from numberBox: " + strategyNum);}
+}
 
 switch(strategyNum){
-	case 0: PrisonerB = Math.round(Math.random());
+	case 0: PrisonerB = Math.round(Math.random()); console.log("Random 0/1")
 	break;
-	case 1: PrisonerB = 0;
+	case 1: PrisonerB = 0; console.log("Always Cooperate")
 	break;
-	case 2: PrisonerB = 1;
+	case 2: PrisonerB = 1; console.log("Always Defect")
 	break;
-	case 3: if (lastA == "AD"){PrisonerB = 1; console.log("Tit For Tat AD")} //start cooperate, repeat A offset 1
-			else{PrisonerB = 0; console.log("Tit for Tat AC/else")}
+	case 3: console.log("Tit For Tat")
+			if (lastA == "AD"){PrisonerB = 1;} //start cooperate, repeat A offset 1
+			else{PrisonerB = 0;}
 	break;
-	case 4: if (lastA == "AC"){PrisonerB = 0; console.log("Tit For Tat Suspicious AC")} //start defect, repeat A offset 1
-			else{PrisonerB = 1; console.log("Tit for Tat Suspicious AD/else")}
+	case 4: console.log("Tit For Tat Suspicious")
+			if (lastA == "AC"){PrisonerB = 0;} //start defect, repeat A offset 1
+			else{PrisonerB = 1;}
 	break;
-	case 5: if(ADefected == 1){PrisonerB = 1} //cooperate always until A defects once
+	case 5: console.log("Grudger")
+			if(ADefected == 1){PrisonerB = 1} //cooperate always until A defects once
 			else{PrisonerB = 0}
 	break;
-	case 6: if(twoLastA == "AD" && lastA == "AD" ){PrisonerB = 1}
+	case 6: console.log("Tit for Two Tats")
+			if(twoLastA == "AD" && lastA == "AD" ){PrisonerB = 1}
 			else{PrisonerB = 0} //tit-for-two-tats
 	break;
-	case 7: console.log(turnsRemain + " = turnsRemain")
+	case 7: console.log("Handshake")
 			if(turnsRemain == 7){if(twoLastA == "AD" && lastA == "AC"){handshake = 1; console.log("player has agreed to handshake, ai plays cooperate")} //janky af
 						else{handshake = 0; console.log("player has not agreed to handshake, ai plays defect") }}
 			if(turnsRemain == 9){PrisonerB = 1} //handshake: turn 1, defect. turn 2, cooperate. if player plays same moves:, always cooperate. else: defect
@@ -147,14 +149,10 @@ switch(strategyNum){
 	break;
 default: console.log("error in switch(strategyNum)")
 }
-
 twoLastA = lastA
 lastA = PrisonerA
-
 if(lastA == "AD"){ADefected = 1; console.log("PrisonerA has defected at least 1 round, Grudger only play Defect now")}
 console.log("Prisoner B as int: " + PrisonerB)
-
-
 switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	case 0: PrisonerB = "BC";
 	break;
@@ -162,8 +160,6 @@ switch(PrisonerB){ //turn computers choice into string of BCompromise or BDefect
 	break;
 default: console.log("error in switch(PrisonerB)")
 }
-
-
 console.log("PrisonerB as string: " + PrisonerB)
 var sentence = PrisonerA + PrisonerB //combine string to both to decide 1/4 of all options
 console.log("Sentence as string:" + sentence)
@@ -176,7 +172,6 @@ document.getElementById('txtScore').innerHTML = points;
 console.log("Points: " + points)
 document.getElementById(sentence).style.backgroundColor = "lime"; //set color of choice to lime green
 }
-
 function newGame(){
 turnsRemain = 10
 points = 0
@@ -184,6 +179,10 @@ lastA = null
 twoLastA = null
 ADefected = 0
 handshake = null
+
+if(document.getElementById("guesserStrat").checked){document.getElementById("numStrategy").disabled = true;}
+else{document.getElementById("numStrategy").disabled = false;}
+
 console.log("ADefected: " + ADefected)
 console.log("lastA: " + lastA)
 document.getElementById('btnCooperate').disabled = false; //re-allow button
@@ -196,6 +195,10 @@ document.getElementById("ADBC").style.backgroundColor = "#D5D5D5"
 document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
 start();
 }
+
+function guessStrat(){
+ //needs implementation
+}
 </script>
 </head>
 
@@ -203,7 +206,7 @@ start();
 <h1 style="margin-top: -8px"><br>Prisoner Dilemma<br>
 <span style="visibility:hidden;">-</span></h1>
 <br>
- Strategy #<input type="number" id="numStrategy" min="0" max="7" value= "0" onClick="start();" onChange="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input>
+ Strategy #<input type="number" id="numStrategy" min="0" max="7" value= "0" onClick="start();" onChange="start();" style="width: 2.25em;">: <b><span id="textStrategy"></span></b></input><br><input type="checkbox" id="guesserStrat" onClick="start();" onChange="start();" >: Guess the random strategy!</input>
 <p> Turns Remain: <b><span id="txtTurns"></span></b></p>
 <p> Your Points (Lower is Better): <b><span id="txtScore">0</span></b></p>
 <p>Explanation:<br>
@@ -232,7 +235,6 @@ Prisoner B: 3 years</p></td>
 		<td width="45%"><p id="ADBD" title="2">Each serves 2 years</p></td>
 	</tr>
 </table>
-<!--<p>Sentence: <br><b><span id="lblSentence"></span></b></p>-->
 <br>
 <button id="btnCooperate" onclick="dilemma(0)">Cooperate</button>
 <button id="btnRandom" onclick="dilemma(Math.round(Math.random()))">Random</button>
