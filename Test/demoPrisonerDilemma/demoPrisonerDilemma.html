@@ -171,6 +171,12 @@ points += parseInt(document.getElementById(sentence).title);
 document.getElementById('txtScore').innerHTML = points;
 console.log("Points: " + points)
 document.getElementById(sentence).style.backgroundColor = "lime"; //set color of choice to lime green
+
+if (document.getElementById("guesserStrat").checked && turnsRemain <= 0){
+	document.getElementById('guessSpan').style.display = "inline"
+
+}
+
 }
 function newGame(){
 turnsRemain = 10
@@ -180,7 +186,12 @@ twoLastA = null
 ADefected = 0
 handshake = null
 
-if(document.getElementById("guesserStrat").checked){document.getElementById("numStrategy").disabled = true;}
+document.getElementById('guessSpan').style.display = "none";
+document.getElementById('numGuess').value = "0"
+document.getElementById("textGuess").innerHTML = "Random (non-iterative)"
+
+if(
+document.getElementById("guesserStrat").checked){document.getElementById("numStrategy").disabled = true;}
 else{document.getElementById("numStrategy").disabled = false;}
 
 console.log("ADefected: " + ADefected)
@@ -196,9 +207,41 @@ document.getElementById("ADBD").style.backgroundColor = "#D5D5D5"
 start();
 }
 
-function guessStrat(){
- //needs implementation
+function guess1(){
+ switch(parseInt(document.getElementById('numGuess').value)){
+	case 0: document.getElementById("textGuess").innerHTML = "Random (non-iterative)"
+break;
+	case 1: document.getElementById("textGuess").innerHTML = "Always Cooperate (non-iterative)"
+break;
+	case 2: document.getElementById("textGuess").innerHTML = "Always Defect (non-iterative)"
+break;
+	case 3: document.getElementById("textGuess").innerHTML = "Tit-For-Tat"
+break;
+	case 4: document.getElementById("textGuess").innerHTML = "Suspicious Tit-For-Tat"
+break;
+	case 5: document.getElementById("textGuess").innerHTML = "Grudger"
+break;
+	case 6: document.getElementById("textGuess").innerHTML = "Tit-For-Two-Tats"
+break;
+	case 7: document.getElementById("textGuess").innerHTML = "Handshake"
+break;
+	default: console.log("Guess Switch Catostrophic Failure: " + document.getElementById('numGuess').value)
 }
+}
+
+function guess2(myGuess){
+
+if(myGuess == strategyNum){
+	alert("Guess: Correct\nFinal Score: " + points)
+	console.log("StrategyNum: " + strategyNum)
+}
+else{alert("Guess: Wrong\nFinal Score: " + points)
+	console.log("StrategyNum: " + strategyNum)}
+
+document.getElementById('guessSpan').style.display = "none";
+newGame();
+}
+
 </script>
 </head>
 
@@ -240,5 +283,7 @@ Prisoner B: 3 years</p></td>
 <button id="btnRandom" onclick="dilemma(Math.round(Math.random()))">Random</button>
 <button id="btnDefect" onclick="dilemma(1)">Defect</button><br>
 <button id="btnNewGame" onclick="newGame()">newGame</button>
+<br><br>
+<span id="guessSpan" style="display: none">Your Guess #<input type="number" id="numGuess" min="0" max="7" value= "0" onClick="guess1()" onChange="guess1()" style="width: 2.25em;">: <b><span id="textGuess">Random (non-iterative)</span></b></input><br><button onclick="guess2(parseInt(document.getElementById('numGuess').value))">Submit Guess</button></span>
 </body>
 </html>
