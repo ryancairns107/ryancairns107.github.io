@@ -76,7 +76,7 @@ function calculateSale(){
 
 	message = "Name: " + document.getElementById("name").value;
 	message += "\nAddress: " + document.getElementById("address").value;
-	message += "\nTotal Price After Tax: $" + totalPrice.toFixed(2) + " for your " + (parseInt(quantity1 + quantity2 + quantity3)) + " books";
+	message += "\nTotal Price After Tax: $" + totalPrice.toFixed(2) + " for your " + (parseInt((quantity1) + parseInt(quantity2) + parseInt(quantity3))) + " books";
 	message += "\nThank You, Come Again";
 	
 	console.log(message);
