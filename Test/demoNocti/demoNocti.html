@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>nocti - Ryan Cairns</title>
+<style>
+p {
+	background-color: #D5D5D5;
+	color: black;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+	background-color: #9099A2;
+	color: white;
+	margin: auto;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+body {
+	background-color: #D5D5D5;
+	color: black;	
+}
+* {
+	text-align:center;	
+}
+table {
+    margin-left:auto; 
+    margin-right:auto;
+	text-height: 2em;
+ }
+ .quantity{width: 5em;}
+ .longText{width: 40em;}
+</style>
+<script>
+var cd1Total, cd2Total, cd3Total;
+var quantity1, quantity2, quantity3;
+var totalTax, TotalPrice;
+var message = "";
+function clear(){
+message = "";
+document.getElementById("receipt").innerHTML("")
+console.log("Cleared Receipt")
+}
+function calculateSale(){
+	
+	var quantity1 = parseInt(document.getElementById("q1").value);
+	var quantity2 = parseInt(document.getElementById("q2").value);
+	var quantity3 = parseInt(document.getElementById("q3").value);
+	var cd1Total = (quantity1) * 9.99;
+	var cd2Total = (quantity2) * 26.99;
+	var cd3Total = (quantity3) * 29.99;
+	var totalTax = ((cd1Total + cd2Total + cd3Total) * .06);
+	var totalPrice = ((cd1Total + cd2Total + cd3Total) + totalTax);
+	document.getElementById("totalTax").innerHTML = "$" + totalTax.toFixed(2);
+	document.getElementById("totalPrice").innerHTML = "$" + totalPrice.toFixed(2);
+	
+	//var message = "";
+	document.getElementById("receipt").innerHTML = message;
+	var totalPrice;
+	
+	message += "Name: " + document.getElementById("name").value;
+	
+	message += "\nAddress: " + document.getElementById("address").value;
+	message += "\nCity, State, & Zip: " + document.getElementById("address2").value;
+	
+	var d = new Date(); 
+var dateTime = "Order Date: " + (d.getMonth()+1) + "/"
+                + d.getDate()  + "/" 
+                + d.getFullYear() + " @ "  
+                + d.getHours() + ":"  
+                + d.getMinutes() + ":" 
+                + d.getSeconds();
+	message += "\n" + dateTime;
+	
+	message += "\nTotal Quantity: " + (parseInt((quantity1) + parseInt(quantity2) + parseInt(quantity3))) + " CD's"
+	
+	for(x=1; x <= 3; x++){
+		if(parseInt(document.getElementById("q"+x).value) > 0)
+			{message+= "\nCD " + x + ": " + document.getElementById("t"+x).innerHTML;
+			message+= "	Quantity: " + parseInt(document.getElementById("q"+x).value)}
+	}
+	
+	
+	
+	
+	message += "\nSubtotal: $" + Number(cd1Total + cd2Total + cd3Total).toFixed(2);
+	
+	message += "\nSales Tax: $" + totalTax.toFixed(2);
+	
+	message += "\nTotal (SubTotal + Tax): $" + totalPrice.toFixed(2);
+	
+	if(parseInt(totalPrice).toFixed(2) >= 1 & parseInt(totalPrice).toFixed(2) < 40){shipping = 15}
+	else if(parseInt(totalPrice).toFixed(2) >= 40 && parseInt(totalPrice).toFixed(2) < 150){shipping = 10}
+	else if(parseInt(totalPrice).toFixed(2) >= 150){shipping = 0}
+	else{shipping = 0}
+	
+	message+= "\nShipping Charge: $" + shipping;
+	
+	message += "\nTotal + Shipping: $" + (Number(totalPrice) + Number(shipping)).toFixed(2);
+	
+	message+="\n\n"
+	
+	console.log(message);
+	document.getElementById("receipt").innerHTML = message;
+	
+}
+</script>
+</head>
+
+<body>
+<h1 style="margin-top: -8px" onClick="clear()"><br>
+CD's For Sale<br>
+<span style="visibility:hidden;">-</span></h1><br>
+
+<form name="myForm">
+<table width="40%" height="75%" border="1">
+  <tbody>
+    <tr>
+      <td colspan="1">Name:</td>
+      <td colspan="3"><input type="text" id="name" class="longText"></td>
+    </tr>
+    <tr>
+      <td colspan="1">Address:</td>
+      <td colspan="3"><input type="text" id="address" class="longText"></td>
+    </tr>
+    <tr>
+      <td colspan="1">City, State, & Zip:</td>
+      <td colspan="3"><input type="text" id="address2" class="longText"></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td>Title</td>
+      <td>Unit Cost (UC)</td>
+      <td>Total</td>
+    </tr>
+    <tr>
+      <td><input type="number" value="0"  min="0" id="q1" required class="quantity" onChange="document.getElementById('total1').innerHTML ='$' + (document.getElementById('q1').value * 9.99).toFixed(2)" onload="document.getElementById('total1').innerHTML ='$' + (document.getElementById('q1').value * 9.99).toFixed(2)" ></td>
+      <td id="t1">Lucy Nelson's Greatest Hits</td>
+      <td>$9.99</td>
+      <td id="total1">$0.00</td>
+    </tr>
+    <tr>
+      <td><input type="number" value="0"  min="0" id="q2" required class="quantity" onChange="document.getElementById('total2').innerHTML ='$' + (document.getElementById('q2').value * 26.99).toFixed(2)" onload="document.getElementById('total2').innerHTML ='$' + (document.getElementById('q2').value * 26.99).toFixed(2)"></td>
+      <td id="t2">Barry Cuda & The Sharks LIVE</td>
+      <td>$26.99</td>
+      <td id="total2">$0.00</td>
+    </tr>
+    <tr>
+      <td><input type="number" value="0" min="0" id="q3" required class="quantity" onChange="document.getElementById('total3').innerHTML ='$' + (document.getElementById('q3').value * 29.99).toFixed(2)" onload="document.getElementById('total3').innerHTML ='$' + (document.getElementById('q3').value * 29.99).toFixed(2)"></td>
+      <td id="t3">Busta Move Boogies</td>
+      <td>$29.99</td>
+      <td id="total3">$0.00</td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Print Receipt" onClick="calculateSale();"></td>
+      <td>Tax:</td>
+      <td id="tax">6%</td>
+      <td id="totalTax"></td>
+    </tr>
+    <tr>
+      <td><input type="reset" value="Clear Fields"></td>
+      <td colspan="2">Total:</td>
+      <td id="totalPrice"></td>
+    </tr>
+    <tr>
+      <td colspan="4"><textarea readonly id="receipt" cols="100" rows="30"></textarea></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>
