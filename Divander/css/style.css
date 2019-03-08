@@ -14,22 +14,21 @@ h1,h2,h3,h4,h5,h6 {
 	text-align: center;	
 }
 
-
-ul {
+.ulHeader{
     list-style-type: none;
     overflow: hidden;
     background-color: #E95600;
-	position: fixed;
+    position: fixed;
     top: 0;
-	left: 0;
+    left: 0;
     width: 98%;
 }
 
-li {
+.liHeader{
     float: left;
 }
 
-li a {
+.liAHeader{
     display: block;
     color: white;
     text-align: center;
@@ -37,10 +36,16 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+.liAHeader:hover:not(.active){
     background-color: #A1AFA1;
+
 }
 
-.active {
+#home{
+    float:right;
+    padding-right: 2%;
+}
+
+#active{
     background-color: #D20AD2;
 }
