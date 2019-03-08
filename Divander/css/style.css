@@ -1,0 +1,46 @@
+/* CSS Document */
+
+
+body{
+	background-color:#DBD19F;	
+}
+
+p{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+	
+h1,h2,h3,h4,h5,h6 {
+	text-align: center;	
+}
+
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #E95600;
+	position: fixed;
+    top: 0;
+	left: 0;
+    width: 98%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #A1AFA1;
+}
+
+.active {
+    background-color: #D20AD2;
+}
