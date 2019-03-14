@@ -2,16 +2,8 @@
 
 
 body{
-	background-color:#DBD19F;	
-}
-
-p{
-	margin-left: 10%;
-	margin-right: 10%;
-}
-	
-h1,h2,h3,h4,h5,h6 {
-	text-align: center;	
+	background-color:#DBD19F;
+    font-family: 'Ubuntu Condensed', sans-serif;	
 }
 
 .ulHeader{
@@ -41,6 +33,79 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 
+.card{
+margin-left: 10%;
+margin-right: 10%;
+width: 80%;
+background-color: #bab080;
+-webkit-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
+-moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
+box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
+}
+
+.card h2{
+    
+
+}
+
+.card p{
+
+}
+
+.headline{
+    padding: 5px;
+}
+
+.news{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.news p{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 1em;
+    background-color: white;
+    border-left: 8px solid green;
+    }
+
+.news p:hover{
+    background-color: #A1AFA1;
+
+}
+
+.news img{
+    float: right;
+    height: 2.5%;
+    width: 2.5%;
+    margin-top: -8px;
+    margin-right: 10px;
+    }
+.news p:hover img{
+    margin-right: 0px;
+}
+
+.projCard div{
+    height: 200px;
+    width: 400px;
+}
+.projCard{
+    text-decoration: none;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.projCard .header{
+    margin-right: auto;
+    margin-left: auto;  
+}
+
 #home{
     float:right;
     padding-right: 2%;
@@ -48,4 +113,17 @@ h1,h2,h3,h4,h5,h6 {
 
 #active{
     background-color: #D20AD2;
+}
+
+#gameCard{
+    background-image: url('../img/gameLogo.png');
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#movieCard{
+    background-image: url('../img/movieLogo.png');
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
 }
