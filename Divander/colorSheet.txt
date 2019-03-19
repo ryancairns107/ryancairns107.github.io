@@ -1,3 +1,3 @@
-Orange - #E95600
+Orange - #E95600	#F9AC49
 Grey - #A1AFA1
-Purple - #D20AD2
+Purple - #D20AD2	#59174C
