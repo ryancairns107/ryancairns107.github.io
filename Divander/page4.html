@@ -10,16 +10,27 @@
 </head>
 <body>
 <ul class="ulHeader"> 
+	<li class="liHeader"><a href="index.html" class="liAHeader">Home</a></li>
 	<li class="liHeader"><a href="page1.html" class="liAHeader">About Us</a></li>
 	<li class="liHeader"><a href="page2.html" class="liAHeader">Projects</a></li>
 	<li class="liHeader"><a href="page3.html" class="liAHeader">Media</a></li>
 	<li class="liHeader"><a href="page4.html" id="active" class="liAHeader">Contact</a></li>
-	<li id="home" class="liHeader"><a href="index.html" class="liAHeader">Home</a></li>
 </ul>
 <br><br><br><br><br>
 <div class="card">
 <h2 class="headline">Contact Us:</h2>
-<p></p>
+<p class="headline">Looking for questions, contact, etc. Feel free to reach out to us with the form below and we will get back to you as soon as possible</p>
+<form name="contactUs" class="headline">
+	Your Name?: required<input type="text" name="yourName" placeholder="Name" required="true">
+	Your E-mail?: required<input type="email" name="yourEmail" placeholder="E-mail" required="true">
+	Phone Number?: optional<input type="tel" name="yourPhone" placeholder="Phone Number">
+	<br>
+	<textarea required="true" maxlength="300" placeholder="How can we help you? (300 characters)" rows="8" cols="60"></textarea>
+	<label>I would like to sign up for the Divander Studios e-mail newsletter to receive updates and behind the scenes looks at our projects.</label><input type="checkbox" name="newsletterSignup">
+	<br>
+	<input type="submit" name="contactSubmit" value="Submit">
+
+</form>
 </div>
 </body>
 </html>

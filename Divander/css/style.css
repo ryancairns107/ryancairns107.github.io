@@ -6,6 +6,10 @@ body{
     font-family: 'Ubuntu Condensed', sans-serif;	
 }
 
+input{
+margin: 10px;
+}
+
 .ulHeader{
     list-style-type: none;
     overflow: hidden;
@@ -49,11 +53,18 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
 }
 
 .card p{
-
+    margin-left: 1em;
 }
 
 .headline{
     padding: 5px;
+    margin-left: 1em;
+}
+
+.headline textarea{
+    float: right;
+    margin-top: -5%;
+    margin-right: 3%
 }
 
 .news{
@@ -70,11 +81,10 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
     padding: 1em;
     background-color: white;
     border-left: 8px solid green;
-    }
+}
 
 .news p:hover{
     background-color: #A1AFA1;
-
 }
 
 .news img{
@@ -83,7 +93,8 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
     width: 2.5%;
     margin-top: -8px;
     margin-right: 10px;
-    }
+}
+
 .news p:hover img{
     margin-right: 0px;
 }
@@ -104,11 +115,6 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
 .projCard .header{
     margin-right: auto;
     margin-left: auto;  
-}
-
-#home{
-    float:right;
-    padding-right: 2%;
 }
 
 #active{
