@@ -17,6 +17,7 @@ margin: 10px;
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1;
 }
 
 .liHeader{
@@ -139,14 +140,14 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
 }
 
 #gameCard{
-    background-image: url('../img/gameLogo.png');
+    background-image: url('../img/echoImg.png');
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #movieCard{
-    background-image: url('../img/movieLogo.png');
+    background-image: url('../img/faceImg.png');
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-position: center;
