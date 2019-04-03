@@ -1,7 +1,7 @@
 /* CSS Document */
 
 body{
-	background-color:#DBD19F;
+	background-color:#bab4a7;
     font-family: 'Ubuntu Condensed', sans-serif;	
 }
 
@@ -16,7 +16,7 @@ margin: 10px;
     position: fixed;
     top: 0;
     left: 0;
-    width: 98%;
+    width: 100%;
 }
 
 .liHeader{
@@ -53,7 +53,8 @@ video{
 margin-left: 10%;
 margin-right: 10%;
 width: 80%;
-background-color: #bab080;
+padding-bottom: 5px;
+background-color: #877f93;
 -webkit-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
 -moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
 box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
@@ -92,7 +93,7 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
     width: 90%;
     padding: 1em;
     background-color: white;
-    border-left: 8px solid green;
+    border-left: 8px solid #59174C;
 }
 
 .news p:hover{
@@ -123,11 +124,14 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
+
 }
 
 .projCard .header{
     margin-right: auto;
-    margin-left: auto;  
+    margin-left: auto;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #active{
@@ -147,6 +151,15 @@ box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.6);
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.aboutImg{
+float: right;
+height: 150px;
+width: 150px;
+border-radius: 50%;
+}
+
+
 
 
 
