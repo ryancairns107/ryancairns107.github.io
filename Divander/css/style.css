@@ -160,6 +160,13 @@ width: 150px;
 border-radius: 50%;
 }
 
+.projectPageVideo{
+    display: block;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0px auto;
+}
 
 
 
