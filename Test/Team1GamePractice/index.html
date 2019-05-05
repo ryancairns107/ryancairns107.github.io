@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Group 4 Game Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+</head>
+<body>
+<div id="divCity1">
+	<h2>City 1:</h2>
+
+	<p>cleanliness:<progress value="0" max="100" id="city1pollution"></progress> <span id="city1pollutionText">0</span>%</p>
+
+	<p>Energy Goal: <span id="city1EnergyLevel">0</span>/<span id="city1EnergyGoalDisplay">100</span> units</p>
+
+	<p>Windmills: <span id="city1Wind">0</span></p>
+	<p>HydroElectric: <span id="city1HydroE">0</span></p>
+	<p>Solar: <span id="city1Solar">0</span></p>
+	<p>Nuclear: <span id="city1Nuclear">0</span></p>
+	<p>Biomass: <span id="city1Bio">0</span></p>
+	<p>Geothermal: <span id="city1Geo">0</span></p>
+	<p>Hydrogen: <span id="city1Hydrogen">0</span></p>
+	<p>Coal: <span id="city1Coal">0</span></p>
+	<p>Oil: <span id="city1Oil">0</span></p>
+	<p>NaturalGas: <span id="city1Gas">0</span></p>
+
+	<p>Build Energy Sources:</p>
+	<ul id="1">
+		<li id="10" class="Wind">Wind Turbine</li>
+		<li id="11" class="HydroE">Hydro Electric</li>
+		<li id="12" class="Solar">Solar</li>
+		<li id="13" class="Nuclear">Nuclear</li>
+		<li id="14" class="Bio">Biomass</li>
+		<li id="15" class="Geo">Geothermal</li>
+		<li id="16" class="Hydrogen">Hydrogen</li>
+		<li id="17" class="Coal">Coal</li>
+		<li id="18" class="Oil">Oil</li>
+		<li id="19" class="Gas">Natural Gas</li>
+	</ul>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Wind Multiplier</td>
+		<td>HydroElectric Multiplier</td>
+		<td>Solar Multiplier</td>
+		<td>Nuclear Multiplier</td>
+		<td>Biomass Multiplier</td>
+		<td>Geothermal Multiplier</td>
+		<td>Hydrogen Multiplier</td>
+		<td>Coal Multiplier</td>
+		<td>Oil Multiplier</td>
+		<td>Natural Gas Multiplier</td>
+		<td>Energy Goal</td>
+	</tr>
+	<tr>
+		<td id="city10M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city11M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city12M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city13M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city14M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city15M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city16M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city17M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city18M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city19M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city1EnergyGoal">100</td><!----     CHANGE THESE VALUE ----->
+	</tr>
+ </table>
+
+</div>
+
+<div id="divCity2">
+	<h2>City 2:</h2>
+
+	<p>cleanliness:<progress value="0" max="100" id="city2pollution"></progress> <span id="city2pollutionText">0</span>%</p>
+
+	<p>Energy Goal: <span id="city2EnergyLevel">0</span>/<span id="city2EnergyGoalDisplay">150</span> units</p>
+
+	<p>Windmills: <span id="city2Wind">0</span></p>
+	<p>HydroElectric: <span id="city2HydroE">0</span></p>
+	<p>Solar: <span id="city2Solar">0</span></p>
+	<p>Nuclear: <span id="city2Nuclear">0</span></p>
+	<p>Biomass: <span id="city2Bio">0</span></p>
+	<p>Geothermal: <span id="city2Geo">0</span></p>
+	<p>Hydrogen: <span id="city2Hydrogen">0</span></p>
+	<p>Coal: <span id="city2Coal">0</span></p>
+	<p>Oil: <span id="city2Oil">0</span></p>
+	<p>NaturalGas: <span id="city2Gas">0</span></p>
+
+	<p>Build Energy Sources:</p>
+	<ul id="2">
+		<li id="20" class="Wind">Wind Turbine</li>
+		<li id="21" class="HydroE">Hydro Electric</li>
+		<li id="22" class="Solar">Solar</li>
+		<li id="23" class="Nuclear">Nuclear</li>
+		<li id="24" class="Bio">Biomass</li>
+		<li id="25" class="Geo">Geothermal</li>
+		<li id="26" class="Hydrogen">Hydrogen</li>
+		<li id="27" class="Coal">Coal</li>
+		<li id="28" class="Oil">Oil</li>
+		<li id="29" class="Gas">Natural Gas</li>
+	</ul>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Wind Multiplier</td>
+		<td>HydroElectric Multiplier</td>
+		<td>Solar Multiplier</td>
+		<td>Nuclear Multiplier</td>
+		<td>Biomass Multiplier</td>
+		<td>Geothermal Multiplier</td>
+		<td>Hydrogen Multiplier</td>
+		<td>Coal Multiplier</td>
+		<td>Oil Multiplier</td>
+		<td>Natural Gas Multiplier</td>
+		<td>Energy Goal</td>
+	</tr>
+	<tr>
+		<td id="city20M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city21M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city22M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city23M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city24M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city25M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city26M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city27M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city28M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city29M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city2EnergyGoal">150</td><!----     CHANGE THESE VALUE ----->
+	</tr>
+ </table>
+
+</div>
+
+<div id="divCity3">
+	<h2>City 3:</h2>
+
+	<p>cleanliness:<progress value="0" max="100" id="city3pollution"></progress> <span id="city3pollutionText">0</span>%</p>
+
+	<p>Energy Goal: <span id="city3EnergyLevel">0</span>/<span id="city3EnergyGoalDisplay">200</span> units</p>
+
+	<p>Windmills: <span id="city3Wind">0</span></p>
+	<p>HydroElectric: <span id="city3HydroE">0</span></p>
+	<p>Solar: <span id="city3Solar">0</span></p>
+	<p>Nuclear: <span id="city3Nuclear">0</span></p>
+	<p>Biomass: <span id="city3Bio">0</span></p>
+	<p>Geothermal: <span id="city3Geo">0</span></p>
+	<p>Hydrogen: <span id="city3Hydrogen">0</span></p>
+	<p>Coal: <span id="city3Coal">0</span></p>
+	<p>Oil: <span id="city3Oil">0</span></p>
+	<p>NaturalGas: <span id="city3Gas">0</span></p>
+
+	<p>Build Energy Sources:</p>
+	<ul id="3">
+		<li id="30" class="Wind">Wind Turbine</li>
+		<li id="31" class="HydroE">Hydro Electric</li>
+		<li id="32" class="Solar">Solar</li>
+		<li id="33" class="Nuclear">Nuclear</li>
+		<li id="34" class="Bio">Biomass</li>
+		<li id="35" class="Geo">Geothermal</li>
+		<li id="36" class="Hydrogen">Hydrogen</li>
+		<li id="37" class="Coal">Coal</li>
+		<li id="38" class="Oil">Oil</li>
+		<li id="39" class="Gas">Natural Gas</li>
+	</ul>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Wind Multiplier</td>
+		<td>HydroElectric Multiplier</td>
+		<td>Solar Multiplier</td>
+		<td>Nuclear Multiplier</td>
+		<td>Biomass Multiplier</td>
+		<td>Geothermal Multiplier</td>
+		<td>Hydrogen Multiplier</td>
+		<td>Coal Multiplier</td>
+		<td>Oil Multiplier</td>
+		<td>Natural Gas Multiplier</td>
+		<td>Energy Goal</td>
+	</tr>
+	<tr>
+		<td id="city30M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city31M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city32M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city33M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city34M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city35M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city36M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city37M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city38M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city39M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city3EnergyGoal">200</td><!----     CHANGE THESE VALUE ----->
+	</tr>
+ </table>
+
+</div>
+
+<div id="divCity4">
+	<h2>City 4:</h2>
+
+	<p>cleanliness:<progress value="0" max="100" id="city4pollution"></progress> <span id="city4pollutionText">0</span>%</p>
+
+	<p>Energy Goal: <span id="city4EnergyLevel">0</span>/<span id="city4EnergyGoalDisplay"></span> units</p>
+
+	<p>Windmills: <span id="city4Wind">0</span></p>
+	<p>HydroElectric: <span id="city4HydroE">0</span></p>
+	<p>Solar: <span id="city4Solar">0</span></p>
+	<p>Nuclear: <span id="city4Nuclear">0</span></p>
+	<p>Biomass: <span id="city4Bio">0</span></p>
+	<p>Geothermal: <span id="city4Geo">0</span></p>
+	<p>Hydrogen: <span id="city4Hydrogen">0</span></p>
+	<p>Coal: <span id="city4Coal">0</span></p>
+	<p>Oil: <span id="city4Oil">0</span></p>
+	<p>NaturalGas: <span id="city4Gas">0</span></p>
+
+	<p>Build Energy Sources:</p>
+	<ul id="4">
+		<li id="40" class="Wind">Wind Turbine</li>
+		<li id="41" class="HydroE">Hydro Electric</li>
+		<li id="42" class="Solar">Solar</li>
+		<li id="43" class="Nuclear">Nuclear</li>
+		<li id="44" class="Bio">Biomass</li>
+		<li id="45" class="Geo">Geothermal</li>
+		<li id="46" class="Hydrogen">Hydrogen</li>
+		<li id="47" class="Coal">Coal</li>
+		<li id="48" class="Oil">Oil</li>
+		<li id="49" class="Gas">Natural Gas</li>
+	</ul>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Wind Multiplier</td>
+		<td>HydroElectric Multiplier</td>
+		<td>Solar Multiplier</td>
+		<td>Nuclear Multiplier</td>
+		<td>Biomass Multiplier</td>
+		<td>Geothermal Multiplier</td>
+		<td>Hydrogen Multiplier</td>
+		<td>Coal Multiplier</td>
+		<td>Oil Multiplier</td>
+		<td>Natural Gas Multiplier</td>
+		<td>Energy Goal</td>
+	</tr>
+	<tr>
+		<td id="city40M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city41M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city42M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city43M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city44M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city45M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city46M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city47M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city48M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city49M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city4EnergyGoal">50</td><!----     CHANGE THESE VALUE ----->
+	</tr>
+ </table>
+
+</div>
+
+<div id="divCity5">
+	<h2>City 5:</h2>
+
+	<p>cleanliness:<progress value="0" max="100" id="city5pollution"></progress> <span id="city5pollutionText">0</span>%</p>
+
+	<p>Energy Goal: <span id="city5EnergyLevel">0</span>/<span id="city5EnergyGoalDisplay"></span> units</p>
+
+	<p>Windmills: <span id="city5Wind">0</span></p>
+	<p>HydroElectric: <span id="city5HydroE">0</span></p>
+	<p>Solar: <span id="city5Solar">0</span></p>
+	<p>Nuclear: <span id="city5Nuclear">0</span></p>
+	<p>Biomass: <span id="city5Bio">0</span></p>
+	<p>Geothermal: <span id="city5Geo">0</span></p>
+	<p>Hydrogen: <span id="city5Hydrogen">0</span></p>
+	<p>Coal: <span id="city5Coal">0</span></p>
+	<p>Oil: <span id="city5Oil">0</span></p>
+	<p>NaturalGas: <span id="city5Gas">0</span></p>
+
+	<p>Build Energy Sources:</p>
+	<ul id="5">
+		<li id="50" class="Wind">Wind Turbine</li>
+		<li id="51" class="HydroE">Hydro Electric</li>
+		<li id="52" class="Solar">Solar</li>
+		<li id="53" class="Nuclear">Nuclear</li>
+		<li id="54" class="Bio">Biomass</li>
+		<li id="55" class="Geo">Geothermal</li>
+		<li id="56" class="Hydrogen">Hydrogen</li>
+		<li id="57" class="Coal">Coal</li>
+		<li id="58" class="Oil">Oil</li>
+		<li id="59" class="Gas">Natural Gas</li>
+	</ul>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Wind Multiplier</td>
+		<td>HydroElectric Multiplier</td>
+		<td>Solar Multiplier</td>
+		<td>Nuclear Multiplier</td>
+		<td>Biomass Multiplier</td>
+		<td>Geothermal Multiplier</td>
+		<td>Hydrogen Multiplier</td>
+		<td>Coal Multiplier</td>
+		<td>Oil Multiplier</td>
+		<td>Natural Gas Multiplier</td>
+		<td>Energy Goal</td>
+	</tr>
+	<tr>
+		<td id="city50M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city51M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city52M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city53M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city54M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city55M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city56M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city57M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city58M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city59M">1</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="city5EnergyGoal">300</td><!----     CHANGE THESE VALUE ----->
+	</tr>
+ </table>
+
+</div>
+
+<div id="divInventory">
+	<h2>Inventory:</h2>
+	<p>Windmills: <span id="myWind"></span></p>
+	<p>HydroElectric: <span id="myHydroE"></span></p>
+	<p>Solar: <span id="mySolar"></span></p>
+	<p>Nuclear: <span id="myNuclear"></span></p>
+	<p>Biomass: <span id="myBio"></span></p>
+	<p>Geothermal: <span id="myGeo"></span></p>
+	<p>Hydrogen: <span id="myHydrogen"></span></p>
+	<p>Coal: <span id="myCoal"></span></p>
+	<p>Oil: <span id="myOil"></span></p>
+	<p>NaturalGas: <span id="myGas"></span></p>
+</div>
+<h3>Data Table: (change these values in the .html file to test the game)</h3>
+<table>
+	<tr class="tableHeader">
+		<td>Resource:</td>
+		<td>Wind</td>
+		<td>HydroElectric</td>
+		<td>Solar</td>
+		<td>Nuclear</td>
+		<td>Biomass</td>
+		<td>Geothermal</td>
+		<td>Hydrogen</td>
+		<td>Coal</td>
+		<td>Oil</td>
+		<td>Gas</td>
+	</tr>
+	<tr>
+		<td class="tableHeader">Cost (coins):</td>
+		<td id="0Cost">30</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="1Cost">40</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="2Cost">25</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="3Cost">50</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="4Cost">20</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="5Cost">28</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="6Cost">35</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="7Cost">10</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="8Cost">10</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="9Cost">20</td>		<!----     CHANGE THESE VALUE ----->
+	</tr>
+	<tr>
+		<td class="tableHeader">Cleanliness (+/-):</td>
+		<td id="0Clean">9</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="1Clean">8</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="2Clean">10</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="3Clean">5</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="4Clean">4</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="5Clean">6</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="6Clean">9</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="7Clean">-10</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="8Clean">-9</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="9Clean">7</td>		<!----     CHANGE THESE VALUE ----->
+	</tr>
+	<tr>
+		<td class="tableHeader">Energy (units):</td>
+		<td id="0Energy">25</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="1Energy">30</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="2Energy">20</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="3Energy">35</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="4Energy">20</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="5Energy">25</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="6Energy">25</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="7Energy">30</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="8Energy">25</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="9Energy">25</td>		<!----     CHANGE THESE VALUE ----->
+	</tr>
+	<tr>
+		<td class="tableHeader">Starting Quantity:</td>
+		<td id="0Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="1Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="2Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="3Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="4Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="5Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="6Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="7Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="8Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+		<td id="9Quantity">1000000</td>		<!----     CHANGE THESE VALUE ----->
+	</tr>
+</table>
+
+<div id="divBank">
+	<h2>Bank:</h2>
+	<p>Coins:</p><p id="myCoins">100000000</p><!----     CHANGE THIS VALUE ----->
+</div>
+
+<!-- <div id="divDev">
+	<h2>DevOptions</h2>
+</div> -->
+
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
